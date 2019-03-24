@@ -26,7 +26,7 @@ class LoginComponent extends Component {
                         <a href="/" className="btn blue-grey darken-2 white-text mr-2">
                             <i className="material-icons left">cancel</i>Cancel
                         </a>
-                        <a href="/admin/allow/home" className="btn blue darken-1 white-text mr-2">
+                        <a href="/profile/admin/allow/home" className="btn blue darken-1 white-text mr-2">
                             <i className="material-icons left">check</i>Sign-In
                         </a>
                     </div>

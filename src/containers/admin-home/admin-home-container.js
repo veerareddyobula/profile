@@ -18,7 +18,7 @@ class AdminHomeContainer extends Component {
             <Fragment>
                 <div className="container mt-4">
                     <div className="d-flex justify-content-end">
-                        <a href="/admin/allow/home/add" className="btn blue darken-1 white-text mr-2">
+                        <a href="/profile/admin/allow/home/add" className="btn blue darken-1 white-text mr-2">
                             <i className="material-icons left">add</i>Add New Post
                     </a>
                     </div>

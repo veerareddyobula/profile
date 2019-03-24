@@ -20,7 +20,7 @@ class ManagePostsContainer extends Component {
         console.log('--== componentWillReceiveProps --== ', newProps)
         if (newProps.curd && newProps.curd.status === 200) {
             const { history } = this.props
-            history.push('/admin/allow/home')
+            history.push('/profile/admin/allow/home')
         }
     }
 
@@ -68,10 +68,10 @@ class ManagePostsContainer extends Component {
                     </div>
                     <div className="card-footer">
                         <div className="d-flex justify-content-between">
-                            <a href="/admin/allow/home" className="btn blue-grey darken-2 white-text mr-2">
+                            <a href="/profile/admin/allow/home" className="btn blue-grey darken-2 white-text mr-2">
                                 <i className="material-icons left">cancel</i>Cancel
                             </a>
-                            <a href="/admin/allow/home" className="btn blue darken-1 white-text mr-2" onClick={() => this.handleCompleteClick(blogPost)}>
+                            <a href="/profile/admin/allow/home" className="btn blue darken-1 white-text mr-2" onClick={() => this.handleCompleteClick(blogPost)}>
                                 <i className="material-icons left">check</i>Publish
                             </a>
                         </div>

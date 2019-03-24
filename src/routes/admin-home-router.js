@@ -11,8 +11,8 @@ class AdminHomeRouter extends Component {
             <div>
                 <HeaderComponent />
                 <BrowserRouter>
-                    <Route exact path="/admin/allow/home"       component={AdminHomeContainer} />
-                    <Route exact path="/admin/allow/home/add"   component={ManagePostsContainer} />
+                    <Route exact path="/profile/admin/allow/home"       component={AdminHomeContainer} />
+                    <Route exact path="/profile/admin/allow/home/add"   component={ManagePostsContainer} />
                 </BrowserRouter>
             </div>
         )

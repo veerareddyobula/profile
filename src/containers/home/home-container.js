@@ -19,6 +19,7 @@ class HomeContainer extends Component {
     }
 
     render() {
+        console.log('--==>> I am at HomeContainer <<==--')
         return (
             <Fragment>
                 <AboutmeComponent />
