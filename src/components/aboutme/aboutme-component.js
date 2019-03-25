@@ -19,9 +19,9 @@ class AboutmeComponent extends Component {
                     </div>
                     <div className="row">
                         <div className="col offset-4 s8">
-                            <span className="btn amber darken-3 text-white">
+                            <a href="assets/veera_Resume.pdf" target="_blank" className="btn amber darken-3 text-white">
                                 <i className="material-icons left">file_download</i>Resume
-                            </span>
+                            </a>
                         </div>
                     </div>
                 </div>

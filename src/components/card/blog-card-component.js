@@ -18,7 +18,7 @@ class BlogCardComponent extends Component {
                             </div>
                         </div>
                         <div className="card-action">
-                            <a href={item.link} rel="noopener noreferrer" target="_blank">Link to original post</a>
+                            <a href={item.srcLink} rel="noopener noreferrer" target="_blank">Link to original post</a>
                         </div>
                     </div>
                 </div>
