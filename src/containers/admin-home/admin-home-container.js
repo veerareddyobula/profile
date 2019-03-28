@@ -23,42 +23,44 @@ class AdminHomeContainer extends Component {
                     </a>
                     </div>
                 </div>
-                <table className="highlight centered responsive-table">
-                    <thead>
-                        <tr>
-                            <td>#</td>
-                            <td>cardTitle</td>
-                            <td>Image Url</td>
-                            <td>Source Link</td>
-                            <td>My Comments</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            data ? (
-                                Object.keys(data).map((entity, index) => {
-                                    const item = data[entity]
-                                    return (
+                <div className="container">
+                    <table className="highlight centered responsive-table">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>cardTitle</td>
+                                <td>Image Url</td>
+                                <td>Source Link</td>
+                                <td>Template</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                data ? (
+                                    Object.keys(data).map((entity, index) => {
+                                        const item = data[entity]
+                                        return (
+                                            <tr key={`adminHomeContainers_${index}_tr`}>
+                                                <td>{index + 1}</td>
+                                                <td>{item.cardTitle}</td>
+                                                <td>{item.imageUrl}</td>
+                                                <td>{item.srcLink}</td>
+                                                <td>{item.selectedTemplate}</td>
+                                                <td></td>
+                                            </tr>
+                                        )
+                                    })
+                                ) : (
                                         <tr>
-                                            <td>{index + 1}</td>
-                                            <td>{item.cardTitle}</td>
-                                            <td>{item.imageUrl}</td>
-                                            <td>{item.srcLink}</td>
-                                            <td>{item.myComments}</td>
-                                            <td></td>
+                                            <td colSpan="6">No Data Found</td>
                                         </tr>
                                     )
-                                })
-                            ) : (
-                                    <tr>
-                                        <td colSpan="6">No Data Found</td>
-                                    </tr>
-                                )
 
-                        }
-                    </tbody>
-                </table>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </Fragment>
         )
     }

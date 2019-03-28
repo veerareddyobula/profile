@@ -1,0 +1,45 @@
+.separator {
+    display: flex;
+    width: 100%;
+    border-bottom: 3px solid var(--border-color);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tbl-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/*** 
+*
+* Used for TweakWorkTemplate
+*
+*/
+.d--grid--TweakWorkTemplate {
+    display: grid;
+    grid-template-columns: 18% auto;
+    grid-template-rows: 1fr;
+}
+
+.d--grid--TweakWorkTemplate-labels {
+    align-items: center;
+    display: grid;
+}
+
+.div-border-bottom {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.cursor-pointer:hover {
+    color: var(--black);
+}
+
+
+/**** End of TweakWorkTemplate ****/

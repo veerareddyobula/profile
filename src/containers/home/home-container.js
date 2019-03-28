@@ -14,12 +14,10 @@ class HomeContainer extends Component {
 
     componentDidMount = () => {
         const parallaxContainer = $('.parallax')
-        console.log('--== parallaxContainer ', parallaxContainer)
         M.Parallax.init(parallaxContainer);
     }
 
     render() {
-        console.log('--==>> I am at HomeContainer <<==--')
         return (
             <Fragment>
                 <AboutmeComponent />

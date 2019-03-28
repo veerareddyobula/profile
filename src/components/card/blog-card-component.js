@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TemplateFactory from './../../components/template-factory/template-factory'
 import './blog-card-component.css'
 
 class BlogCardComponent extends Component {
@@ -12,9 +13,11 @@ class BlogCardComponent extends Component {
                             <img src={item.imageUrl} alt={item.cardTitle} />
                         </div>
                         <div className="card-content">
-                            <div id="style-4" className="card-content-wrapper">
-                                <span className="card-title">{item.cardTitle}</span>
-                                <p>{item.myComments}</p>
+                            <div className="d-flex flex-column">
+                                <div className="d-flex justify-content-center border-bottom mb-3">
+                                    <a href={item.srcLink}><h5>{item.cardTitle}</h5></a>
+                                </div>
+                                <div><TemplateFactory selectedTemplate={item.selectedTemplate} defaultTemplateDef={item.templateDef} /></div>
                             </div>
                         </div>
                         <div className="card-action">

@@ -1,19 +1,34 @@
 import React, { Component } from 'react'
+import $ from "jquery";
+import M from "materialize-css";
 import { connect } from "react-redux"
 import 'bootstrap/dist/css/bootstrap.css'
 
 import { addNewBloggerPost } from "./../../actions"
+import {ManageBlogAboutPost} from './../../components/card/manage-blog-about-post'
+
+import './manage-posts-container.css'
+
 class ManagePostsContainer extends Component {
 
     state = {
         blogPost: {
-
-        }
+            templateDef: {}
+        },
+        isValidTemplateAdded: false,
     }
 
     handleCompleteClick = blogPost => {
         const { addNewBloggerPost } = this.props
+        console.log('--- handleCompleteClick --== ', blogPost)
         addNewBloggerPost(blogPost)
+        // "#/profile/admin/allow/home" 
+    }
+
+    componentDidMount() {
+        const templateSelectOption = $('select');
+        M.FormSelect.init(templateSelectOption);
+        // .material_select();
     }
 
     componentWillReceiveProps(newProps) {
@@ -34,36 +49,20 @@ class ManagePostsContainer extends Component {
         })
     }
 
+    setTemplateDef = templateDef => {
+        const {blogPost, isValidTemplateAdded} = this.state
+        blogPost.templateDef = templateDef
+        this.setState({blogPost, isValidTemplateAdded:true})
+    }
+
     render() {
-        const { blogPost } = this.state
+        const { blogPost, isValidTemplateAdded } = this.state
         return (
-            <div className="container mt-4">
-                <div className="card">
-                    <div className="card-header">
-                        <span className="card-title">Add New Post</span>
-                    </div>
+            <div className="container-fluid mt-4">
+                <div className="card" style={{ boxShadow: 'none' }}>
                     <div className="card-content">
-                        <div className="d-flex justify-content-between">
-                            <div style={{ width: '100vw' }}>
-                                <div className="input-field col s12">
-                                    <input id="cardTitle" type="text" className="validate" value={blogPost.cardTitle} onChange={(event) => this.handleOnChange('cardTitle', event)} />
-                                    <label htmlFor="cardTitle">Title</label>
-                                </div>
-                                <div className="input-field col s12">
-                                    <input id="imageUrl" type="text" className="validate" value={blogPost.imageUrl} onChange={(event) => this.handleOnChange('imageUrl', event)} />
-                                    <label htmlFor="imageUrl">Header Image Url</label>
-                                </div>
-                                <div className="input-field col s12">
-                                    <input id="srcLink" type="text" className="validate" value={blogPost.srcLink} onChange={(event) => this.handleOnChange('srcLink', event)} />
-                                    <label htmlFor="srcLink">Content Source Link</label>
-                                </div>
-                            </div>
-                            <div style={{ width: '100vw' }}>
-                                <div className="input-field col s12">
-                                    <textarea id="myComments" className="materialize-textarea" value={blogPost.myComments} onChange={(event) => this.handleOnChange('myComments', event)}  ></textarea>
-                                    <label htmlFor="myComments">Comments</label>
-                                </div>
-                            </div>
+                        <div className="d-flex flex-column">
+                            <ManageBlogAboutPost blogPost={blogPost} handleOnChange={this.handleOnChange} setTemplateDef={this.setTemplateDef} />
                         </div>
                     </div>
                     <div className="card-footer">
@@ -71,9 +70,12 @@ class ManagePostsContainer extends Component {
                             <a href="#/profile/admin/allow/home" className="btn blue-grey darken-2 white-text mr-2">
                                 <i className="material-icons left">cancel</i>Cancel
                             </a>
-                            <a href="#/profile/admin/allow/home" className="btn blue darken-1 white-text mr-2" onClick={() => this.handleCompleteClick(blogPost)}>
+                            <button
+                                className="btn blue darken-1 white-text mr-2"
+                                disabled={!isValidTemplateAdded} 
+                                onClick={() => this.handleCompleteClick(blogPost)}>
                                 <i className="material-icons left">check</i>Publish
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
