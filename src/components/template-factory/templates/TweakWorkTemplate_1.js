@@ -108,7 +108,7 @@ class TweakWorkTemplate1 extends Component {
                                     )}
                                 </div>
                                 <blockquote>
-                                    {!templateDef.blockQuoteItems || templateDef.blockQuoteItems.length === 0 && <div className="col s12 p-4 d-flex justify-content-center">No Records Found</div>}
+                                    {(!templateDef.blockQuoteItems || templateDef.blockQuoteItems.length === 0) && <div className="col s12 p-4 d-flex justify-content-center">No Records Found</div>}
                                     <ol>
                                         {
                                             templateDef.blockQuoteItems && templateDef.blockQuoteItems.map((entity, index) => {

@@ -50,7 +50,7 @@ class ManagePostsContainer extends Component {
     }
 
     setTemplateDef = templateDef => {
-        const {blogPost, isValidTemplateAdded} = this.state
+        const {blogPost} = this.state
         blogPost.templateDef = templateDef
         this.setState({blogPost, isValidTemplateAdded:true})
     }

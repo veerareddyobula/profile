@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import Pdf from '../../static/Veera_Resume.pdf';
 import './aboutme-component.css'
 
 class AboutmeComponent extends Component {
+
     render() {
         return (
             <div className="parallax-container center valign-wrapper">
@@ -19,7 +21,10 @@ class AboutmeComponent extends Component {
                     </div>
                     <div className="row">
                         <div className="col offset-4 s8">
-                            <a href="assets/veera_Resume.pdf" target="_blank" className="btn amber darken-3 text-white">
+                            <a href="https://github.com/veerareddyobula" target="_blank" rel="noopener noreferrer" className="btn blue darken-3 text-white mr-2">
+                                <i className="material-icons left">code</i>Github
+                            </a>
+                            <a href={Pdf} target="_blank" rel="noopener noreferrer" onClick={this.downloadResume} className="btn amber darken-3 text-white">
                                 <i className="material-icons left">file_download</i>Resume
                             </a>
                         </div>

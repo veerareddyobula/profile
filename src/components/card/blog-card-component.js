@@ -9,8 +9,8 @@ class BlogCardComponent extends Component {
             <div className="row blue-grey-text text-darken-4">
                 <div className="col s12 m7">
                     <div className="card">
-                        <div className="card-image card-image-wrapper">
-                            <img src={item.imageUrl} alt={item.cardTitle} />
+                        <div className="card-image">
+                            <img className="card-image-wrapper" src={item.imageUrl} alt={item.cardTitle} />
                         </div>
                         <div className="card-content">
                             <div className="d-flex flex-column">
