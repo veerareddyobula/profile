@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
 :root {
   --black: #272727;
   --border-color: #bbb;
+  --new-work-studio-log-color: #2B3252;
 }
 
 html {
@@ -24,3 +28,63 @@ html::-webkit-scrollbar-track
      background-color: #306584;
      border: 1px solid #306584;
  }
+ 
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-pointer:hover {
+  color: var(--new-work-studio-log-color);
+}
+
+ .tbl-d-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(2rem, auto));
+ }
+
+ .tbl-d-grid > span.heading {
+   color: var(--new-work-studio-log-color);
+   display: grid;
+   justify-content: center;
+ }
+
+ .tbl-d-grid > span {
+  padding: 8px 4px;
+  word-wrap: break-word;
+}
+
+.nav-bg-color {
+  background-color: #EF5455;
+  color: var(--border-color);
+}
+
+.logo {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 12px;
+  width: 50rem;
+  height: 4.2rem;
+  display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(2px, auto)); */
+  align-items: start;
+}
+
+.logo div:first-child {
+  font-family: 'Arvo', serif;
+  font-size: 20px;
+  width: auto;
+  padding-left: 30px;
+  padding-right: 5px;
+  color: var(--new-work-studio-log-color);
+}
+
+.owner-name-display {
+  font-family: 'Cookie', cursive;
+  color: #FAD744;
+  font-size: 40px;
+}
+
+.toastClass {
+  background-color: #EF5455;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+}

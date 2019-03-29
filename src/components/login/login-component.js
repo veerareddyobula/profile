@@ -1,39 +1,48 @@
-import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
+import React, { Fragment } from 'react'
 
-class LoginComponent extends Component {
-
-    render() {
-        return (
-            <div class="card">
+const LoginComponent = ({user, handleSignInHandler, handleOnChange}) => {
+    return (
+        <Fragment>
+            <div className="card">
                 <div className="card-header blue darken-1 white-text">
-                    <span class="card-title">Veera Reddy.Obulareddy Profile : Login</span>
+                    <span className="card-title">Veera Reddy.Obulareddy Profile : Login</span>
                 </div>
-                <div class="card-content white-text">
+                <div className="card-content white-text">
                     <div className="d-flex flex-column">
-                        <div class="input-field col s6">
-                            <input placeholder="Placeholder" id="email" type="email" class="validate" />
-                            <label for="email">Email</label>
+                        <div className="input-field col s6">
+                            <input 
+                                placeholder="Placeholder" 
+                                id="email" 
+                                type="email" 
+                                className="validate" 
+                                value={user.email}  
+                                onChange={(event)=>handleOnChange('email', event)} />
+                            <label htmlFor="email">Email</label>
                         </div>
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" />
-                            <label for="password">Password</label>
+                        <div className="input-field col s12">
+                            <input 
+                                id="password" 
+                                type="password" 
+                                className="validate" 
+                                value={user.password}  
+                                onChange={(event)=>handleOnChange('password', event)} />
+                            <label htmlFor="password">Password</label>
                         </div>
                     </div>
                 </div>
-                <div class="card-action">
+                <div className="card-action">
                     <div className="d-flex justify-content-between">
                         <a href="#/" className="btn blue-grey darken-2 white-text mr-2">
                             <i className="material-icons left">cancel</i>Cancel
                         </a>
-                        <a href="#/profile/admin/allow/home" className="btn blue darken-1 white-text mr-2">
+                        <button onClick={handleSignInHandler} className="btn blue darken-1 white-text mr-2">
                             <i className="material-icons left">check</i>Sign-In
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
-        )
-    }
-}
+        </Fragment>
+    )
+} 
 
 export default LoginComponent

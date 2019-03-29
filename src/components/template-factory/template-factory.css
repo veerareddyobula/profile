@@ -33,13 +33,5 @@
     border-bottom: 1px solid var(--border-color);
 }
 
-.cursor-pointer {
-    cursor: pointer !important;
-}
-
-.cursor-pointer:hover {
-    color: var(--black);
-}
-
 
 /**** End of TweakWorkTemplate ****/

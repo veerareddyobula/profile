@@ -1,7 +1,7 @@
 import { 
     INSERT_BLOGGER_POST_SUCCESS, 
     INSERT_BLOGGER_POST_FAILURE 
-  } from "../actions/types";
+  } from "../actions/blogger-posts-types";
 
 export default (state = {}, action) => {
   console.log('--=== Curd Reducer --== ', state, action);

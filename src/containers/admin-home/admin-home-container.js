@@ -20,46 +20,35 @@ class AdminHomeContainer extends Component {
                     <div className="d-flex justify-content-end">
                         <a href="#/profile/admin/allow/home/add" className="btn blue darken-1 white-text mr-2">
                             <i className="material-icons left">add</i>Add New Post
-                    </a>
+                        </a>
                     </div>
                 </div>
-                <div className="container">
-                    <table className="highlight centered responsive-table">
-                        <thead>
-                            <tr>
-                                <td>#</td>
-                                <td>cardTitle</td>
-                                <td>Image Url</td>
-                                <td>Source Link</td>
-                                <td>Template</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data ? (
-                                    Object.keys(data).map((entity, index) => {
-                                        const item = data[entity]
-                                        return (
-                                            <tr key={`adminHomeContainers_${index}_tr`}>
-                                                <td>{index + 1}</td>
-                                                <td>{item.cardTitle}</td>
-                                                <td>{item.imageUrl}</td>
-                                                <td>{item.srcLink}</td>
-                                                <td>{item.selectedTemplate}</td>
-                                                <td></td>
-                                            </tr>
-                                        )
-                                    })
-                                ) : (
-                                        <tr>
-                                            <td colSpan="6">No Data Found</td>
-                                        </tr>
-                                    )
-
-                            }
-                        </tbody>
-                    </table>
+                <div className="container mt-2">
+                    <div className="tbl-d-grid border-top">
+                        <span className="heading">#</span>
+                        <span className="heading"><h5>Title</h5></span>
+                        <span className="heading"><h5>Image Url</h5></span>
+                        <span className="heading"><h5>Source Link</h5></span>
+                        <span className="heading"><h5>Template</h5></span>
+                        <span className="heading"></span>
+                        {
+                            Object.keys(data).map((entity, index) => {
+                                const item = data[entity]
+                                return (
+                                    <Fragment key={`adminHomeContainers_${index}_tr`}>
+                                        <span className="border-right border-top p4">{index + 1}</span>
+                                        <span className="border-right border-top p4">{item.cardTitle}</span>
+                                        <span className="border-right border-top p4">{item.imageUrl}</span>
+                                        <span className="border-right border-top p4">{item.srcLink}</span>
+                                        <span className="border-right border-top p4">{item.selectedTemplate}</span>
+                                        <span className="border-top p4 cursor-pointer">
+                                            <i className="material-icons left">edit</i>
+                                        </span>
+                                    </Fragment>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </Fragment>
         )

@@ -8,7 +8,8 @@ const FirebaseConfig = {
     storageBucket: "veerareddyobula-github-io.appspot.com",
     messagingSenderId: "106807866790"
 }
-firebase.initializeApp(FirebaseConfig);
-
-const databaseRef = firebase.database().ref();
-export const bloggerFirebaseRef = databaseRef.child("blogger");
+export const firebaseApp            = firebase.initializeApp(FirebaseConfig);
+export const googleProvider         = new firebase.auth.GoogleAuthProvider();
+export const firebaseAuth           = firebase.auth;
+export const databaseRef            = firebaseApp.database().ref();
+export const bloggerFirebaseRef     = databaseRef.child("blogger");

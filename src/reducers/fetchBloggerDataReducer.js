@@ -1,6 +1,6 @@
 import { 
     FETCH_BLOGGER_POSTS, 
-  } from "../actions/types";
+  } from "../actions/blogger-posts-types";
 
 export default (state = {}, action) => {
   console.log('--=== Data Reducer --== ', state, action);
