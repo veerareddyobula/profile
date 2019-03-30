@@ -3,9 +3,14 @@ import React, { Fragment } from 'react'
 const LoginComponent = ({user, handleSignInHandler, handleOnChange}) => {
     return (
         <Fragment>
-            <div className="card">
-                <div className="card-header blue darken-1 white-text">
-                    <span className="card-title">Veera Reddy.Obulareddy Profile : Login</span>
+            <div className="card" style={{width: '75%'}}>
+                <div className="card-header nav-bg-color darken-1 white-text">
+                    <div className="d-flex justify-content-between">
+                        <div className="logo" style={{width:'30%'}}>
+                            <a href="#/">New Work Studio</a>
+                        </div>
+                        <div className="owner-name-display hide-on-med-and-down">Veera Reddy Obulareddy</div>
+                    </div>
                 </div>
                 <div className="card-content white-text">
                     <div className="d-flex flex-column">

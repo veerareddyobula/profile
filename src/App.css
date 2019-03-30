@@ -68,13 +68,18 @@ html::-webkit-scrollbar-track
   align-items: start;
 }
 
-.logo div:first-child {
+.logo a:first-child {
   font-family: 'Arvo', serif;
   font-size: 20px;
   width: auto;
   padding-left: 30px;
   padding-right: 5px;
-  color: var(--new-work-studio-log-color);
+  color: var(--new-work-studio-log-color) !important;
+}
+
+.logo a:first-child:hover {
+  text-decoration: none;
+  color: var(--new-work-studio-log-color) !important;
 }
 
 .owner-name-display {

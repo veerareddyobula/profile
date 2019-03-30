@@ -7,7 +7,7 @@ class HeaderComponent extends Component {
                 <div className="nav-wrapper">
                     <div className="d-flex justify-content-between">
                         <div className="logo">
-                            <div>New Work Studio</div>
+                            <a href="#/">New Work Studio</a>
                         </div>
                         <div className="owner-name-display hide-on-med-and-down">Veera Reddy Obulareddy</div>
                         <ul className="right hide-on-med-and-down">

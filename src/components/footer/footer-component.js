@@ -7,10 +7,10 @@ class FooterComponent extends Component {
             <footer className="page-footer orange">
                 <div className="footer-copyright">
                     <div className="d-flex justify-content-between" style={{width:'100%'}}>
-                        <div>© 2019 Copyright Veera Reddy.Obulareddy</div>
-                        <a href="#/profile/admin/login" className="btn blue-grey darken-2 white-text mr-2">
+                        <a href="#/profile/admin/login" className="btn blue darken-3 text-white ml-3">
                             <i className="material-icons left">verified_user</i> New Work Studio
                         </a>
+                        <div className="mr-2">© 2019 Copyright New-Work-Studio@Veera Reddy.Obulareddy</div>
                     </div>
                 </div>
             </footer>
