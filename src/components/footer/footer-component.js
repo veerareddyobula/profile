@@ -6,7 +6,7 @@ class FooterComponent extends Component {
         return (
             <footer className="page-footer orange">
                 <div className="footer-copyright">
-                    <div className="d-flex justify-content-between" style={{width:'100%'}}>
+                    <div className="d-flex justify-content-between flex-wrap" style={{width:'100%'}}>
                         <a href="#/profile/admin/login" className="btn blue darken-3 text-white ml-3">
                             <i className="material-icons left">verified_user</i> New Work Studio
                         </a>
