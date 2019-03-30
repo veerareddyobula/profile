@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import './template-factory.css';
 
-import TweakWorkTemplate1 from './templates/TweakWorkTemplate_1'
+import TweakWorkTemplate1   from './templates/TweakWorkTemplate_1'
+import TextMessageTemplate  from './templates/TextMessageTemplate'
 class TemplateFactory extends Component {
+
+    static templateMessages = [
+        {value:'tweakWorkTemplate_1', label:'Tweak Work Template -- 1'},
+        {value:'textMessageTemplate', label:'Text Message Template'}
+    ]
 
     state = {
         selectedTemplate: '',
@@ -13,6 +19,8 @@ class TemplateFactory extends Component {
         console.log('--== getRespectiveTemplateBySelctedTemplate --== ', selectedTemplate)
         if(selectedTemplate==='tweakWorkTemplate_1'){
             return <TweakWorkTemplate1 defaultTemplateDef={defaultTemplateDef} setTemplateDef={setTemplateDef} />
+        }else if(selectedTemplate==='textMessageTemplate'){
+            return <TextMessageTemplate defaultTemplateDef={defaultTemplateDef} setTemplateDef={setTemplateDef} />
         }else if(selectedTemplate){
             return <div className="col-sm-12 d-flex justify-content-center">
                 <span className="badge">Template Build In-Progress</span>

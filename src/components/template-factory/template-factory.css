@@ -20,7 +20,7 @@
 */
 .d--grid--TweakWorkTemplate {
     display: grid;
-    grid-template-columns: 18% auto;
+    /* grid-template-columns: repeat(auto-fit, minmax(auto, auto)); */
     grid-template-rows: 1fr;
 }
 

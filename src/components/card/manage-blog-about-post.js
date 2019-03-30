@@ -23,8 +23,11 @@ export const ManageBlogAboutPost = ({ blogPost, handleOnChange, setTemplateDef }
                     <div className="input-field col s12">
                         <select value={blogPost.selectedTemplate} onChange={(event)=>handleOnChange('selectedTemplate', event)}>
                             <option value="">Select Template</option>
-                            <option value="tweakWorkTemplate_1">Tweak Work Template -- 1 </option>
-                            <option value="shareUnReadBlogPost_1">Share UnRead Blog Post -- 1</option>
+                            {
+                                TemplateFactory.templateMessages.map((entity)=>{
+                                    return <option value={entity.value}>{entity.label}</option>
+                                })
+                            }
                         </select>
                         <label>Select Comments Template</label>
                     </div>
