@@ -4,8 +4,8 @@ import M from "materialize-css";
 import { connect } from "react-redux"
 import 'bootstrap/dist/css/bootstrap.css'
 
-import { addNewBloggerPost } from "./../../actions"
-import {ManageBlogAboutPost} from './../../components/card/manage-blog-about-post'
+import { addNewBloggerPost } from "../../actions"
+import {ManageBlogAboutPost} from './../../../components/card/manage-blog-about-post'
 
 import './manage-posts-container.css'
 

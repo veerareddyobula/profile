@@ -1,7 +1,7 @@
 import { 
     GET_NEW_USER_SUCCESS, 
     GET_NEW_USER_FAILURE,
-  } from "../actions/users-action-types"
+  } from "../admin/actions/users-action-types"
 
 export default (state = {}, action) => {
   console.log('--=== Data Reducer --== ', state, action)

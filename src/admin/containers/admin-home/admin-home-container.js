@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css'
 
-import { fetchBloggerPosts } from "./../../actions";
+import { fetchBloggerPosts } from "../../actions"
 
 class AdminHomeContainer extends Component {
 
@@ -16,7 +16,7 @@ class AdminHomeContainer extends Component {
         console.log('AdminHomeContainer --==>> ', data)
         return (
             <Fragment>
-                <div className="container mt-4">
+                <div className="container-fluid mt-4">
                     <div className="d-flex justify-content-end">
                         <a href="#/profile/admin/allow/home/add" className="btn blue darken-1 white-text mr-2">
                             <i className="material-icons left">add</i>Add New Post

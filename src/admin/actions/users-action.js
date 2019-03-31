@@ -1,4 +1,4 @@
-import { firebaseApp } from "../firebase/firebase";
+import { firebaseApp } from "../../firebase/firebase";
 import { 
     GET_NEW_USER_SUCCESS,
     GET_NEW_USER_FAILURE,

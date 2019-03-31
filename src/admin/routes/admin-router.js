@@ -8,9 +8,12 @@ class AminRouter extends Component {
 
     componentWillMount(){
         const storeDetails = JSON.parse(localStorage.getItem('user'))
-        if(storeDetails && storeDetails.user && storeDetails.user.uid){
+        const {history} = this.props
+        const {location} = history;
+        if(storeDetails && storeDetails.user && storeDetails.user.uid && location.pathname==='/profile/admin/login'){
             this.props.history.push('/profile/admin/allow/home')
-        }else {
+            console.log('Allow Current Nav --== ', this.props.history)
+        }else if(!storeDetails) {
             this.props.history.push('/profile/admin/login')
         }
     }

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux";
 
-import { fetchBloggerPosts } from "./../../actions";
+import { fetchBloggerPosts } from "./../../admin/actions";
 import BlogCardComponent from './../card/blog-card-component'
 
 import './blog-component.css'

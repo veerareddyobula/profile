@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import M from "materialize-css";
 import { connect } from "react-redux"
-import { addNewUser } from "./../../actions"
+import { addNewUser } from "../../actions"
 
 class ManageUsersContainer extends Component {
 

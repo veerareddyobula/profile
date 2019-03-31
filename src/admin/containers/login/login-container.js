@@ -3,8 +3,8 @@ import M from "materialize-css";
 import { connect } from "react-redux"
 import 'bootstrap/dist/css/bootstrap.css'
 
-import LoginComponent from './../../components/login/login-component'
-import { validateUser } from "./../../actions"
+import LoginComponent from './../../../components/login/login-component'
+import { validateUser } from "../../actions"
 import './login-container.css'
 
 class LoginContainer extends Component {

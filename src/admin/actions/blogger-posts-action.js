@@ -1,5 +1,5 @@
 
-import { bloggerFirebaseRef } from "./../firebase/firebase";
+import { bloggerFirebaseRef } from "../../firebase/firebase";
 import { 
     FETCH_BLOGGER_POSTS, 
     INSERT_BLOGGER_POST_SUCCESS, 
