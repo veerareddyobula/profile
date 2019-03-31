@@ -35,7 +35,7 @@ class LoginContainer extends Component {
         if(nextProps.usersData && nextProps.usersData.status && nextProps.usersData.status === 200){
             console.log('--== componentWillReceiveProps ==> ', nextProps)
             this.props.history.push('/profile/admin/allow/home')
-        }else {
+        }else if(nextProps.usersData && nextProps.usersData.error && nextProps.usersData.error.message) {
             M.toast({html: nextProps.usersData.error.message, classes:'toastClass', display: 18000})
         }
     }

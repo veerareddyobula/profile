@@ -5,6 +5,16 @@ import LoginContainer    from './../containers/login/login-container'
 import AdminHomeRouter   from './admin-home-router'
 
 class AminRouter extends Component {
+
+    componentWillMount(){
+        const storeDetails = JSON.parse(localStorage.getItem('user'))
+        if(storeDetails && storeDetails.user && storeDetails.user.uid){
+            this.props.history.push('/profile/admin/allow/home')
+        }else {
+            this.props.history.push('/profile/admin/login')
+        }
+    }
+
     render() {
         console.log('--==>> I am at AminRouter <<==--')
         return (

@@ -25,6 +25,7 @@ export const addNewUser = newUser => async dispatch => {
 export const validateUser = user =>  async dispatch => {
   firebaseApp.auth().signInWithEmailAndPassword(user.email, user.password).then((snapshot)=>{
     console.log('--- addNewUser snapshot --==> ', snapshot);
+    localStorage.setItem('user', JSON.stringify(snapshot))
     dispatch({
       type: GET_NEW_USER_SUCCESS,
       payload: {status: 200, message:'success', snapshot}
