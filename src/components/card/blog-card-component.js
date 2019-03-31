@@ -15,7 +15,7 @@ class BlogCardComponent extends Component {
                         <div className="card-content">
                             <div className="d-flex flex-column">
                                 <div className="d-flex justify-content-center border-bottom mb-3">
-                                    <a href={item.srcLink} target="_blank"><h5>{item.cardTitle}</h5></a>
+                                    <a href={item.srcLink} rel="noopener noreferrer" target="_blank"><h5>{item.cardTitle}</h5></a>
                                 </div>
                                 <div className="templateSection">
                                     <TemplateFactory selectedTemplate={item.selectedTemplate} defaultTemplateDef={item.templateDef} />
