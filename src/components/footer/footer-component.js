@@ -10,7 +10,7 @@ class FooterComponent extends Component {
                         <a href="#/profile/admin/login" className="btn blue darken-3 text-white ml-3">
                             <i className="material-icons left">verified_user</i> New Work Studio
                         </a>
-                        <div className="mr-2">© 2019 Copyright New-Work-Studio@Veera Reddy.Obulareddy</div>
+                        <div className="m-3">© 2019 Copyright New-Work-Studio@Veera Reddy.Obulareddy</div>
                     </div>
                 </div>
             </footer>
