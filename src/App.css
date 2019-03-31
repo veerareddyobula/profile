@@ -11,6 +11,10 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
+html, body, .block {
+  height: 100%;
+}
+
 html::-webkit-scrollbar-track
  {
      -webkit-box-shadow: inset 0 0 6px #F5F5F5;
@@ -66,6 +70,15 @@ html::-webkit-scrollbar-track
   display: flex;
   /* grid-template-columns: repeat(auto-fit, minmax(2px, auto)); */
   align-items: start;
+}
+
+.hoverable a {
+  text-decoration: none;
+}
+
+.hoverable a:hover {
+  text-decoration: none;
+  color: var(--new-work-studio-log-color) !important;
 }
 
 .logo a:first-child {

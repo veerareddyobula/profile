@@ -10,8 +10,8 @@ class App extends Component {
     console.log('--==>> I am at App <<==--')
     return (
       <HashRouter>
-        <Route exact path="/profile/*"  component={ProxyRouter}/>
-        <Route exact path="/"           component={ProfileRouter}/>
+        <Route exact path="/profile/*"    component={ProxyRouter}/>
+        <Route exact path="/"             component={ProfileRouter}/>
       </HashRouter>
     );
   }
