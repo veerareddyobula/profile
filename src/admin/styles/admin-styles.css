@@ -1,5 +1,11 @@
 .adminLayout {
     display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(auto-fit, minmax(2rem, auto));
+    grid-template-rows: 50px;
+    grid-template-columns: 1fr;
+    height: 100vh;
+}
+
+.adminLayout .contentSpace {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, auto))
 }
