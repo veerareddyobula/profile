@@ -4,13 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 class FooterComponent extends Component {
     render() {
         return (
-            <footer className="page-footer orange">
+            <footer className="page-footer bg-success">
                 <div className="footer-copyright">
-                    <div className="d-flex justify-content-between flex-wrap" style={{width:'100%'}}>
-                        <a href="#/profile/admin/login" className="btn blue darken-3 text-white ml-3">
-                            <i className="material-icons left">verified_user</i> New Work Studio
-                        </a>
-                        <div className="m-3">© 2019 Copyright New-Work-Studio@Veera Reddy.Obulareddy</div>
+                    <div className="d-flex justify-content-center" style={{width:'100%'}}>
+                        <h6>© 2019 Copyright New-Work-Studio@Veera Reddy.Obulareddy</h6>
                     </div>
                 </div>
             </footer>
