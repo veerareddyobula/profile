@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchBloggerPosts } from "./../../admin/actions";
 import BlogCardComponent from './../card/blog-card-component'
 
-import './blog-component.css'
+import './blog-component.scss'
 class BlogComponent extends Component {
 
     componentWillMount() {

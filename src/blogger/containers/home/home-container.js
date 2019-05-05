@@ -5,7 +5,6 @@ import 'materialize-css/dist/css/materialize.css'
 
 import AboutmeComponent         from './../../../components/aboutme/aboutme-component'
 import CareerSummaryComponent   from './../../../components/career-summary/career-summary-component'
-import BlogComponent            from './../../../components/blog/blog-component'
 import InterviewComponent       from './../../../components/interview/interview-component'
 import CycleBgQuoteComponent    from './../../../components/quotes/cycle-bg-quote-component'
 import BuildingBgQuoteComponent from './../../../components/quotes/building-bg-quote-component'

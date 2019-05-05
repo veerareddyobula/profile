@@ -3,7 +3,7 @@ import _ from 'lodash'
 import M from "materialize-css";
 
 import { FormTextField, FormTextAreaField } from './../../fields/form-edit-field/form-edit-field'
-import './../template-factory.css';
+import './../template-factory.scss';
 
 class TweakWorkTemplate1 extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TemplateFactory from './../../components/template-factory/template-factory'
-import './blog-card-component.css'
+import './blog-card-component.scss'
 
 class BlogCardComponent extends Component {
     render() {

@@ -69,7 +69,7 @@ html::-webkit-scrollbar-track
   height: 4.2rem;
   display: flex;
   /* grid-template-columns: repeat(auto-fit, minmax(2px, auto)); */
-  align-items: start;
+  align-items: flex-start;
 }
 
 .hoverable a {

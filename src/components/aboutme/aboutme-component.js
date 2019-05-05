@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Pdf from '../../static/Veera_Resume.pdf';
-import './aboutme-component.css'
+import './aboutme-component.scss'
 
 class AboutmeComponent extends Component {
 

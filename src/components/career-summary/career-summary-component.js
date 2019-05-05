@@ -7,7 +7,7 @@ import GEDigitalProjects    from '../projects/gedigital-projects-component'
 import WiproLimitedProjects from '../projects/wiprolimited-projects-component'
 import DaviztaProjects      from '../projects/davizta-projects-component'
 import TripodProjects       from '../projects/tripod-projects-component'
-import './career-summary-component.css'
+import './career-summary-component.scss'
 
 class CareerSummaryComponent extends Component {
 

@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { addNewBloggerPost } from "../../actions"
 import {ManageBlogAboutPost} from './../../../components/card/manage-blog-about-post'
 
-import './manage-posts-container.css'
+import './manage-posts-container.scss'
 
 class ManagePostsContainer extends Component {
 

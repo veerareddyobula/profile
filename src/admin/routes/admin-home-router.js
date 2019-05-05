@@ -8,7 +8,7 @@ import ManageUsersContainer from '../containers/admin-users/manage-users-contain
 import NoteBooksRouter from '../modules/notebooks/router'
 import HeaderComponent from '../../components/header/header-component'
 import SidebarComponent from '../../components/sidebar/sidebar-component'
-import './../styles/admin-styles.css'
+import './../styles/admin-styles.scss'
 
 class AdminHomeRouter extends Component {
     render() {

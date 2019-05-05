@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./interview-component.css";
+import "./interview-component.scss";
 
 class InterviewComponent extends Component {
   render() {
@@ -23,7 +23,7 @@ class InterviewComponent extends Component {
                 </div>
                 <h5>Wish to Succeed in a Frontend Interview?</h5>
               </div>
-              <div><button className="btn btn-warning">Let`s Prepare Together</button></div>
+              <div><a href="#/profile/frontend/login" className="btn btn-warning">Let`s Prepare Together</a></div>
             </div>
           </div>
         </div>

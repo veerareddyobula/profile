@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import './template-factory.css';
+import './template-factory.scss';
 
 import TweakWorkTemplate1   from './templates/TweakWorkTemplate_1'
 import TextMessageTemplate  from './templates/TextMessageTemplate'
