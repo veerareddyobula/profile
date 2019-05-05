@@ -1,8 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { onFrontEndPreparationLogin } from "./../../actions/login-container-actions";
 import "./login-container.scss";
 
 class LoginContainer extends Component {
+  static getDerivedStateFromProps(props, state) {
+    console.log("getDerivedStateFromProps --== ", props, state);
+    if(props.frontEndLoginData && props.frontEndLoginData.status === 200){
+        props.history.push('dashboard')
+    }
+    return {};
+  }
+
+  state = {
+    user: {
+      firstName: undefined,
+      lastName: undefined,
+      email: undefined
+    }
+  };
+
+  handleOnChange = (name, event) => {
+    const { user } = this.state;
+    user[name] = event.target.value;
+    this.setState({ user });
+  };
+
+  handleLogin = () => {
+    const { user } = this.state;
+    this.props.onFrontEndPreparationLogin(user);
+  };
+
   render() {
+    const { user } = this.state;
     return (
       <div id="loginContainer">
         <div className="card">
@@ -10,32 +40,38 @@ class LoginContainer extends Component {
             <div className="card-title">Front-End Interview Preparation</div>
           </div>
           <div className="card-content">
-            <div class="input-field col s6">
+            <div className="input-field col s6">
               <input
                 placeholder="First Name"
                 id="first_name"
                 type="text"
-                class="validate"
+                className="validate"
+                value={user.firstName}
+                onChange={event => this.handleOnChange("firstName", event)}
               />
-              <label for="first_name">First Name</label>
+              <label htmlFor="first_name">First Name</label>
             </div>
-            <div class="input-field col s6">
+            <div className="input-field col s6">
               <input
                 placeholder="Last Name"
                 id="last_name"
                 type="text"
-                class="validate"
+                className="validate"
+                value={user.lastName}
+                onChange={event => this.handleOnChange("lastName", event)}
               />
-              <label for="last_name">Last Name</label>
+              <label htmlFor="last_name">Last Name</label>
             </div>
-            <div class="input-field col s6">
+            <div className="input-field col s6">
               <input
                 placeholder="Email"
                 id="email"
                 type="email"
-                class="validate"
+                className="validate"
+                value={user.email}
+                onChange={event => this.handleOnChange("email", event)}
               />
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div className="card-footer">
@@ -43,7 +79,9 @@ class LoginContainer extends Component {
               <a href="#/" className="btn btn-default">
                 Cancel
               </a>
-              <button className="btn btn-success">Submit</button>
+              <button className="btn btn-success" onClick={this.handleLogin}>
+                Submit
+              </button>
             </div>
           </div>
         </div>
@@ -52,4 +90,13 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+const mapStateToProps = ({ frontEndLoginData }) => {
+  return {
+    frontEndLoginData
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { onFrontEndPreparationLogin }
+)(LoginContainer);
