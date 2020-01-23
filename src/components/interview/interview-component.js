@@ -5,7 +5,7 @@ class InterviewComponent extends Component {
   render() {
     return (
       <div className="interviewSection">
-        <div id="interviewComponent">
+        <div>
           <div className="interview-card">
             <div className="interview-card-content">
               <div>
@@ -21,9 +21,7 @@ class InterviewComponent extends Component {
                 <div className="interviewQuote">
                 <h3>"To be a great champion, you must believe you are the best. If you're not, pretend you are." <br/>—Muhammad Ali</h3>
                 </div>
-                <h5>Wish to Succeed in a Frontend Interview?</h5>
               </div>
-              <div><a href="#/profile/frontend/login" className="btn btn-warning">Let`s Prepare Together</a></div>
             </div>
           </div>
         </div>
