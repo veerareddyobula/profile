@@ -100,7 +100,7 @@ class CareerSummaryComponent extends Component {
             <div className="linked-in-btn">
               BTech (Computers Science & Engineering)
             </div>
-            <div className="linked-in-btn">
+            {/* <div className="linked-in-btn">
               <p>
                 lets get in touch{" "}
                 <a href="https://www.linkedin.com/in/veera-reddy-obulareddy-070075122/">
@@ -108,7 +108,7 @@ class CareerSummaryComponent extends Component {
                 </a>
                 , messages work best
               </p>
-            </div>
+            </div> */}
           </div>
           <div className="collection experience--row--col">
             {
