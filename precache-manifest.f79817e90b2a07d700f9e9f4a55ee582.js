@@ -24,12 +24,12 @@ self.__precacheManifest = [
     "url": "/profile/static/media/Veera_Resume.fe427118.pdf"
   },
   {
-    "revision": "d2c37cd53c1b507b42079d7cb54ce9db",
-    "url": "/profile/static/media/interview_preparation.d2c37cd5.png"
-  },
-  {
     "revision": "5b6d1d402eabf65bc61d757b652ac7a3",
     "url": "/profile/static/media/thimble-pattern@2x.5b6d1d40.png"
+  },
+  {
+    "revision": "d2c37cd53c1b507b42079d7cb54ce9db",
+    "url": "/profile/static/media/interview_preparation.d2c37cd5.png"
   },
   {
     "revision": "2bc96dd5c2961d509540a093249d7fb3",
