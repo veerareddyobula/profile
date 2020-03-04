@@ -33,7 +33,7 @@
 .profile--row--col div{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 2em;
     justify-self: center;
 }
 
@@ -44,6 +44,17 @@
     justify-self: center;
     align-items: end;
     margin-bottom: 1rem;
+}
+
+.studies-in-details {
+    grid-column: 1/-1;
+    justify-self: start;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .linked-in-btn {

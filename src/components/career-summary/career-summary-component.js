@@ -20,25 +20,32 @@ class CareerSummaryComponent extends Component {
         siteUrl: "https://www.epam.com/"
       },
       {
-        startDate: "2016-09-01",
-        endDate: "2019-09-09",
+        startDate: "2016-09-30",
+        endDate: "2019-08-01",
         companyName: "GE-Degital",
         subTitle: "Bengaluru (Karnataka, India)",
         siteUrl: "https://www.ge.com/digital/"
       },
       {
-        startDate: "2015-05-01", 
-        endDate: "2016-08-30",
+        startDate: "2015-05-30", 
+        endDate: "2016-08-01",
         companyName: "Wipro Limited",
         subTitle: "Bengaluru (Karnataka, India)",
         siteUrl: "https://www.epam.com/"
       },
       {
-        startDate: "2013-05-01",
-        endDate: "2015-01-30",
+        startDate: "2013-05-30",
+        endDate: "2015-01-01",
         companyName: "daVIZta India Pvt. Ltd",
         subTitle: "Pune (Maharashtra, India)",
         siteUrl: "https://davizta.com/"
+      },
+      {
+        startDate: "2008-09-30",
+        endDate: "2012-12-01",
+        companyName: "Tripod Software Solutions PVT Ltd",
+        subTitle: "Hyderabad (Telangana, India)",
+        siteUrl: "http://www.tripodtech.net/"
       }
     ]
   };
@@ -90,25 +97,30 @@ class CareerSummaryComponent extends Component {
                 className="circle responsive-img"
               />
             </div>
-            <div className="profile--col--name">O.Veera Bhargava Reddy</div>
-            <div style={{ display: "flex" }}>
-              <span>
-                <i className="material-icons">email</i>
-              </span>
-              <span>obulareddyveera@gmail.com</span>
+            <div className="profile--col--name">
+              <div style={{gridTemplateRows: '4em !important'}}>O.Veera Bhargava Reddy</div>
+              <div style={{ display: "flex" }}>
+                <span>
+                  <i className="material-icons">email</i>
+                </span>
+                <span>obulareddyveera@gmail.com</span>
+              </div>
+              <div className="studies-in-details">
+                <div>
+                  <div>BTech (Computers Science & Engineering)</div>
+                  <div>from S.V.University, Tirupathi, Andhra Pradesh, India</div>
+                </div>
+              </div>
+              <div className="linked-in-btn">
+                <p>
+                  lets get in touch{" "}
+                  <a href="https://www.linkedin.com/in/veera-reddy-obulareddy-070075122/">
+                    LinkedIn
+                  </a>
+                  , messages work best
+                </p>
+              </div>
             </div>
-            <div className="linked-in-btn">
-              BTech (Computers Science & Engineering)
-            </div>
-            {/* <div className="linked-in-btn">
-              <p>
-                lets get in touch{" "}
-                <a href="https://www.linkedin.com/in/veera-reddy-obulareddy-070075122/">
-                  LinkedIn
-                </a>
-                , messages work best
-              </p>
-            </div> */}
           </div>
           <div className="collection experience--row--col">
             {
