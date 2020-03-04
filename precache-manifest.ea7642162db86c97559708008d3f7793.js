@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3c141e00154423b2be32",
-    "url": "/profile/static/css/main.d3dd64b2.chunk.css"
+    "revision": "814faa18151dc364c44f",
+    "url": "/profile/static/css/main.7d9fad79.chunk.css"
   },
   {
-    "revision": "3c141e00154423b2be32",
-    "url": "/profile/static/js/main.4f8fbb79.chunk.js"
+    "revision": "814faa18151dc364c44f",
+    "url": "/profile/static/js/main.8df72bc4.chunk.js"
   },
   {
     "revision": "189fd871db148202566e",
@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/profile/static/js/2.bed7530a.chunk.js"
   },
   {
-    "revision": "4e89d671240969da63f8afd6205dc33f",
-    "url": "/profile/static/media/Veera_Resume.4e89d671.pdf"
-  },
-  {
-    "revision": "5b6d1d402eabf65bc61d757b652ac7a3",
-    "url": "/profile/static/media/thimble-pattern@2x.5b6d1d40.png"
+    "revision": "a8c21a912268e7145303fcbc0a9b40c6",
+    "url": "/profile/static/media/Veera_Resume.a8c21a91.pdf"
   },
   {
     "revision": "d2c37cd53c1b507b42079d7cb54ce9db",
     "url": "/profile/static/media/interview_preparation.d2c37cd5.png"
   },
   {
-    "revision": "110bde7aa30b37b993b43d5808ef6ce3",
+    "revision": "5b6d1d402eabf65bc61d757b652ac7a3",
+    "url": "/profile/static/media/thimble-pattern@2x.5b6d1d40.png"
+  },
+  {
+    "revision": "7991b4704aa129372a1e802d80e838a4",
     "url": "/profile/index.html"
   }
 ];
