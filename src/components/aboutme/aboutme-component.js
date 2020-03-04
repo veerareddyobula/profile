@@ -16,7 +16,7 @@ class AboutmeComponent extends Component {
                                 </p>
                             </h4>
                             <p className="s-font-name-heading">Veera Reddy Obulareddy</p>
-                            <p className="s-font-role-heading">I`m a full-stack web developer</p>
+                            <p className="s-font-role-heading">I`m a full-stack JavaScript developer</p>
                         </div>
                     </div>
                     <div className="row">
