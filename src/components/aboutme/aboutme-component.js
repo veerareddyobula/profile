@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import $ from "jquery";
+import M from "materialize-css";
 import Pdf from '../../static/Veera_Resume.pdf';
 import Doc from '../../static/Veera_Resume.doc';
 import './aboutme-component.scss'
 
 class AboutmeComponent extends Component {
+
+    componentDidMount() {
+        M.Dropdown.init($('.dropdown-trigger'), {});
+    }
 
     render() {
         return (
@@ -21,16 +27,27 @@ class AboutmeComponent extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col offset-3 s9">
+                        <div className="col offset-3 s9 d-flex justify-content-center">
                             <a href="https://github.com/veerareddyobula" target="_blank" rel="noopener noreferrer" className="btn blue darken-3 text-white mr-2">
                                 <i className="material-icons left">code</i>Github
                             </a>
-                            <a href={Pdf} target="_blank" rel="noopener noreferrer" onClick={this.downloadResume} className="btn amber darken-3 text-white mr-2">
-                                <i className="material-icons left">picture_as_pdf</i>Resume
-                            </a>
-                            <a href={Doc} target="_blank" rel="noopener noreferrer" onClick={this.downloadResume} className="btn green darken-3 text-white">
-                                <i className="material-icons left">insert_drive_file</i>Resume
-                            </a>
+                            <div>
+                                <a className='dropdown-trigger btn  amber darken-3 text-white mr-2' href='#/' data-target='dropdown1'>
+                                    <i className="material-icons left">file_download</i> Resume
+                                </a>
+                                <ul id='dropdown1' className='dropdown-content'>
+                                    <li>
+                                        <a href={Pdf} target="_blank" rel="noopener noreferrer">
+                                            <i className="material-icons left">picture_as_pdf</i> PDF
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href={Doc} target="_blank" rel="noopener noreferrer">
+                                            <i className="material-icons left">insert_drive_file</i> Doc
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

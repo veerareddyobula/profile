@@ -27,8 +27,8 @@ class CareerSummaryComponent extends Component {
         siteUrl: "https://www.ge.com/digital/"
       },
       {
-        startDate: "2015-05-30", 
-        endDate: "2016-08-01",
+        startDate: "2015-05-01", 
+        endDate: "2016-08-30",
         companyName: "Wipro Limited",
         subTitle: "Bengaluru (Karnataka, India)",
         siteUrl: "https://www.epam.com/"
@@ -39,13 +39,6 @@ class CareerSummaryComponent extends Component {
         companyName: "daVIZta India Pvt. Ltd",
         subTitle: "Pune (Maharashtra, India)",
         siteUrl: "https://davizta.com/"
-      },
-      {
-        startDate: "2008-09-30",
-        endDate: "2012-12-01",
-        companyName: "Tripod Software Solutions PVT Ltd",
-        subTitle: "Hyderabad (Telangana, India)",
-        siteUrl: "http://www.tripodtech.net/"
       }
     ]
   };
@@ -60,11 +53,13 @@ class CareerSummaryComponent extends Component {
   getTotalExperience = (experienceDetails) => {
       let totalNumberOfMonths = 0;
       experienceDetails.forEach((item) => {
-        totalNumberOfMonths = totalNumberOfMonths + moment
+        const cmpExpByMonths = moment
         .duration(
           moment(item.endDate, "YYYY-MM-DD").diff(moment(item.startDate, "YYYY-MM-DD"))
         )
         .asMonths();
+        totalNumberOfMonths = totalNumberOfMonths + cmpExpByMonths;
+        console.log('--== getTotalExperience ', item, cmpExpByMonths)
       })
       return Math.round(totalNumberOfMonths/12 * 10)/10;
   }
