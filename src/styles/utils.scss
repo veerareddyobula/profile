@@ -1,0 +1,16 @@
+/** 
+ Vertically align a dev center
+*/
+
+.v-center-wrapper {
+  display: table;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  .set-center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

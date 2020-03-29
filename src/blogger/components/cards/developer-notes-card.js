@@ -33,13 +33,22 @@ export default (props) => {
     };
   }, []);
 
-  const googleSignedInListen = isSignedIn => {
+  const googleSignedInListen = () => {
     const auth2 = window.gapi.auth2.getAuthInstance();
-    if (auth2.isSignedIn.get()) {
-      let profile = auth2.currentUser.get().getBasicProfile();
-      sessionStorage.setItem('currentUserData', JSON.stringify(profile))
-      props.history.push('products/notes/dashboard');
+    if (auth2.isSignedIn.get() && !sessionStorage.getItem('currentUserData')) {
+      const profile = auth2.currentUser.get().getBasicProfile();
+      const currentUserData = {
+        id: profile.getId(),
+        fullName: profile.getName(),
+        givenName: profile.getGivenName(),
+        familyName: profile.getFamilyName(),
+        url: profile.getImageUrl(),
+        email: profile.getEmail(),
+      };
+      console.log('--== getImageUrl ', profile.getImageUrl());
+      sessionStorage.setItem('currentUserData', JSON.stringify(currentUserData))
     }
+    props.history.push('/products/notes/dashboard');
   }
 
   const signInViaGoogle = () => {

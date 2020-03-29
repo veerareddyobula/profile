@@ -4,8 +4,26 @@
 
 .justify-content-center {
   justify-content: center;
+
+  button {
+    align-self: center;
+  }
 }
 
 .justify-content-end {
-    justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.col-flex-two {
+  display: flex;
+  justify-content: flex-start;
+
+  div {
+    margin: 1px;
+    align-self: center;
+  }
+
+  button {
+    align-self: center;
+  }
 }
