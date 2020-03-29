@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Cookie');
 @import url('https://fonts.googleapis.com/css?family=Arvo');
+@import url('https://fonts.googleapis.com/css?family=Niconne&display=swap');
+
+@import url('./styles/flex.scss');
+@import url('./styles/buttons.scss');
 
 :root {
   --black: #272727;
@@ -134,3 +138,69 @@ html::-webkit-scrollbar-track
  .row {
    margin: 0px !important;
  }
+
+ .mr-2 {
+   margin-right: 2rem;
+ }
+
+ .bg-success {
+  background-color: #28a745!important;
+}
+
+.card_horizontal__image {
+  background: #d50000;
+  border-style: solid;
+  border-color: #d50000;
+  border-width: 8px;
+  border-radius: 22px;
+}
+
+.p-0 {
+  padding: 0px !important;
+}
+
+.interval-slide-text {
+  font-family: 'Niconne', cursive;
+  display: block;
+  p {
+    text-overflow: ellipsis;
+    text-align: left;
+    max-height: 7rem;
+  }
+
+  p span {
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+.interval-slide-heading {
+  border-bottom: 1px solid;
+  font-family: 'Cookie', cursive;
+  margin-bottom: 1rem !important;
+}
+
+.notes-card-btn-placement {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/** 
+ Vertically align a dev center
+*/
+
+.v-center-wrapper {
+  display: table;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  .set-center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+}

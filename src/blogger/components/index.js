@@ -1,0 +1,5 @@
+export * from './aboutme/aboutme-component'
+export * from './career-summary/career-summary-component'
+export * from './quotes/cycle-bg-quote-component'
+export * from './quotes/building-bg-quote-component'
+export * from './footer/footer-component'
