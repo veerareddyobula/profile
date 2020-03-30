@@ -1,8 +1,12 @@
 import React from "react";
+import {connect} from 'react-redux';
+
+import {initCurrentUserSession} from './../../../store/actions/user-actions';
 import Navbar from './../../components/navbar';
 
-export default (props) => {
+const Dashboard = (props) => {
   const [profile, seProfile] = React.useState();
+  console.log('--== Dashboard ', props);
 
   React.useEffect(() => {
     if (window.gapi && window.gapi.auth2) {
@@ -10,7 +14,10 @@ export default (props) => {
       if (!auth2.isSignedIn.get()) {
         props.history.push("/");
       }else {
-        seProfile(JSON.parse(sessionStorage.getItem('currentUserData')));
+        const currentUserData = JSON.parse(sessionStorage.getItem('currentUserData'));
+        seProfile(currentUserData);
+        console.log('--== 1) initCurrentUserSession ', currentUserData);
+        props.initCurrentUserSession(currentUserData);
       }
     } else {
       props.history.push("/");
@@ -24,3 +31,15 @@ export default (props) => {
     </React.Fragment>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.CurrentUser
+  }
+}
+
+const mapDispatchToProps = {
+  initCurrentUserSession
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

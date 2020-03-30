@@ -7,7 +7,6 @@ import './App.scss'
 
 class App extends Component {
   render() {
-    console.log('--==>> I am at App <<==--')
     return (
       <HashRouter>
         <Route exact path="/products/*"  component={NotesRouter} />

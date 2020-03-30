@@ -4,7 +4,6 @@ import "./interview-component.scss";
 
 class InterviewComponent extends Component {
   render() {
-    console.log('--== InterviewComponent ', this.props)
     return (
       <div className="interviewSection">
         <div>

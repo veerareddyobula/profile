@@ -4,13 +4,11 @@ import M from "materialize-css";
 
 export default props => {
   const { profile } = props;
-  console.log("--== I am NavBar Default ==--", profile);
 
   const signOutViaGoogle = React.useCallback((event) => {
     event.preventDefault();
     sessionStorage.removeItem("currentUserData");
     window.gapi.auth2.getAuthInstance().signOut();
-    console.log('--== signOutViaGoogle ==--');
     props.history.push('/');
   });
 

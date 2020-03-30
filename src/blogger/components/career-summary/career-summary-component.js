@@ -59,7 +59,6 @@ class CareerSummaryComponent extends Component {
         )
         .asMonths();
         totalNumberOfMonths = totalNumberOfMonths + cmpExpByMonths;
-        console.log('--== getTotalExperience ', item, cmpExpByMonths)
       })
       return Math.round(totalNumberOfMonths/12 * 10)/10;
   }

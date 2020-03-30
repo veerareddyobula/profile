@@ -6,7 +6,6 @@ const getGoogleDocsApiInstance = async () => {
       })
       .then(
         response => {
-          console.log("--== Categories ", response);
           resolve(response);
         },
         error => {
@@ -21,7 +20,6 @@ const loadGoogleDocApi = async () => {
     script.src = "https://apis.google.com/js/client.js";
 
     script.onload = () => {
-        console.log('--== Script Loaded Succesfully ==--');
       window.gapi.load("client", () => {
         window.gapi.client
           .init({
@@ -35,21 +33,16 @@ const loadGoogleDocApi = async () => {
           })
           .then(
             () => {
-                console.log('--== I am came to resolve ==--');
               window.gapi.auth2
                 .getAuthInstance()
                 .isSignedIn.listen(async isSignedIn => {
-                  console.log(
-                    "--=== window.gapi.auth2.getAuthInstance isSignedIn ===-- ",
-                    isSignedIn
-                  );
                   if (isSignedIn) {
                     window.docApiInstance = await getGoogleDocsApiInstance();
                   }
                 });
             },
             (error) => {
-              console.log(error);
+              console.warn(error);
             }
           );
       });
@@ -59,7 +52,6 @@ const loadGoogleDocApi = async () => {
   };
 
 export async function getGApiInstance() {
-    console.log('--=== getGApiInstance ===--');
     if(!window.docApiInstance) {
         await loadGoogleDocApi();
     }

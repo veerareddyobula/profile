@@ -20,7 +20,6 @@ export default (props) => {
 
   React.useEffect(() => {
     const clearSetInterval = setInterval(() => {
-      console.log("--== Index Value ", index);
       if (index > devNotesContent.length - 1) {
         setIndex(0);
       } else {
@@ -45,7 +44,6 @@ export default (props) => {
         url: profile.getImageUrl(),
         email: profile.getEmail(),
       };
-      console.log('--== getImageUrl ', profile.getImageUrl());
       sessionStorage.setItem('currentUserData', JSON.stringify(currentUserData))
     }
     props.history.push('/products/notes/dashboard');
@@ -70,7 +68,7 @@ export default (props) => {
           ],
           clientId:
             "342704324971-89a8ri3ijk6sksgub4hll38087fjrqbp.apps.googleusercontent.com",
-          scope: "https://www.googleapis.com/auth/documents.readonly"
+          scope: "https://www.googleapis.com/auth/spreadsheets"
         })
         .then(
           () => {
@@ -79,7 +77,7 @@ export default (props) => {
               .isSignedIn.listen(googleSignedInListen);
           },
           error => {
-            console.log(error);
+            console.warn(error);
           }
         );
     });
@@ -101,7 +99,6 @@ export default (props) => {
     }
   });
 
-  console.log('--== Developer Notes Card --== ', props);
 
   return (
     <div className="card horizontal">
