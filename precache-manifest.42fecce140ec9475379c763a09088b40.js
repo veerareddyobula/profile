@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "65995223772f69c82f72",
+    "revision": "cba1bbfaeb139011c53b",
     "url": "/profile/static/css/main.36dd03b0.chunk.css"
   },
   {
-    "revision": "65995223772f69c82f72",
-    "url": "/profile/static/js/main.17cdfdd3.chunk.js"
+    "revision": "cba1bbfaeb139011c53b",
+    "url": "/profile/static/js/main.8d98a1f0.chunk.js"
   },
   {
     "revision": "189fd871db148202566e",
     "url": "/profile/static/js/runtime~main.cc8686f1.js"
   },
   {
-    "revision": "91e9368021336beaac75",
+    "revision": "e491bd8be2aea38d79ab",
     "url": "/profile/static/css/2.dcfab514.chunk.css"
   },
   {
-    "revision": "91e9368021336beaac75",
-    "url": "/profile/static/js/2.8aeda80e.chunk.js"
+    "revision": "e491bd8be2aea38d79ab",
+    "url": "/profile/static/js/2.432d19b3.chunk.js"
   },
   {
     "revision": "1b3ef0388cb392445094d06516d6c48f",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/profile/static/media/interview_preparation.d2c37cd5.png"
   },
   {
-    "revision": "9690924e20816adf539ddc349674d5fa",
+    "revision": "4642bc1474f6e877c0b073f1de98a7b9",
     "url": "/profile/index.html"
   }
 ];
