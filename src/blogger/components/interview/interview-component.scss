@@ -15,12 +15,14 @@
 }
 
 .interview-card {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 1fr;
     justify-content: flex-end;
 }
 
 .interview-card-content {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
@@ -29,6 +31,7 @@
 }
 
 .interviewQuote {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 96%;
     justify-content: center;

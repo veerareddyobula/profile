@@ -14,3 +14,29 @@
     vertical-align: middle;
   }
 }
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 200px) and (max-width:560px) {
+  .show-on-large {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 560px) and (max-width:1210px) {
+  .show-on-large {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1210px) and (max-width:1600px) {
+  .show-on-large {
+    display: block;
+  }
+}

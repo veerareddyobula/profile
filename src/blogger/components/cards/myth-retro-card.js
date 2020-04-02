@@ -4,18 +4,18 @@ export default (props) => {
   const [index, setIndex] = React.useState(0);
   const devNotesContent = [];
   devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-8.png",
-    txt: "is a self funded application to help my developer life."
+    url: "assets/my-de-notes-slider/avatarSM-1.png",
+    txt: "is a self funded application to help scrum teams retro discussions."
   });
   devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-12.png",
+    url: "assets/my-de-notes-slider/avatarSM-3.png",
     txt:
       "is developed using React.js framework and google drive excel as backend store."
   });
   devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-9.png",
+    url: "assets/my-de-notes-slider/avatarSM-6.png",
     txt:
-      "the idea behind this is to note my bookmarks and findings for feature help."
+      "myth retro helps scrum teams to discuss went wel, improve & actions"
   });
 
   React.useEffect(() => {
@@ -114,7 +114,7 @@ export default (props) => {
           <div className="v-center-wrapper">
             <div className="set-center">
               <p className="flow-text">
-                <span>My Dev Notes</span> <p className="show-on-large font-size-18">{devNotesContent[index].txt}</p>
+                <span>Myth Retro Board</span> <p className="show-on-large font-size-18">{devNotesContent[index].txt}</p>
               </p>
             </div>
           </div>

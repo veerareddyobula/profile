@@ -47,12 +47,14 @@ html::-webkit-scrollbar-track
 }
 
  .tbl-d-grid {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(6, minmax(2rem, auto));
  }
 
  .tbl-d-grid > span.heading {
    color: var(--new-work-studio-log-color);
+   display: -ms-grid;
    display: grid;
    justify-content: center;
  }

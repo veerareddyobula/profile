@@ -20,7 +20,7 @@ export default props => {
   return (
     <div className="navbar-fixed">
       <nav>
-        <div className="nav-wrapper bg-success">
+        <div className="nav-wrapper blue darken-3">
           <a href="#!" className="brand-logo mr-1">
             My Dev Notes
           </a>

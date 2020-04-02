@@ -1,5 +1,6 @@
 .d--grid{
     position: relative;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(33.333%, auto));
     grid-template-rows: repeat(4, minmax(2rem, auto));
@@ -23,6 +24,7 @@
 
 .profile--row--col {
     grid-column : 1/2;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, auto));
     grid-template-rows: auto;
@@ -31,6 +33,7 @@
 }
 
 .profile--row--col div{
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2em;
@@ -38,6 +41,7 @@
 }
 
 .profile--row--col div.circle--badge {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: 90px;
     grid-template-rows: 1fr;

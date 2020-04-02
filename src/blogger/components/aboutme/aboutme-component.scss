@@ -24,6 +24,7 @@
 }
 
 .d--grid--name {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(33.333%, auto));
     grid-template-rows: 1fr;
