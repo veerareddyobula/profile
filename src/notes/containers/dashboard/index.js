@@ -2,32 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CategoryCard from "../../components/category-card";
+import GApiService from "../../components/gapi-service";
 import { loadDataTables } from "../../../store/actions/data-table-actions";
 import { loadCategories } from "../../../store/actions/categories-actions";
 import Navbar from "./../../components/navbar";
 
 const Dashboard = props => {
-  const [profile, seProfile] = React.useState();
   const { asyncStore, dataTableStore, categoriesStore } = props;
   const { values } = dataTableStore;
   const { dataSet } = values;
-
-  React.useEffect(() => {
-    if (window.gapi && window.gapi.auth2) {
-      const auth2 = window.gapi.auth2.getAuthInstance();
-      if (!auth2.isSignedIn.get()) {
-        props.history.push("/");
-      } else {
-        const currentUserData = JSON.parse(
-          sessionStorage.getItem("currentUserData")
-        );
-        seProfile(currentUserData);
-        props.loadDataTables(currentUserData);
-      }
-    } else {
-      props.history.push("/");
-    }
-  }, []);
 
   React.useEffect(() => {
     console.log('--=== loadCategories ===--');
@@ -39,8 +22,8 @@ const Dashboard = props => {
   }, [dataSet])
 
   return (
-    <React.Fragment>
-      <Navbar profile={profile} {...props} />
+    <GApiService {...props}>
+      <Navbar {...props} />
       <div className="container-fluid">
         <div>
         {asyncStore.isLoading && (
@@ -58,7 +41,7 @@ const Dashboard = props => {
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </GApiService>
   );
 };
 

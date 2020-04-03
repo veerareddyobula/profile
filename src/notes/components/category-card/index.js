@@ -23,12 +23,12 @@ const CategoryCard = props => {
                 <div className="card-content">
                   <p className="flow-text">{item.description}</p>
                 </div>
-                <div className="card-action">
+                <div className="card-action" style={{color: "rgb(29, 43, 54) !important", background: 'rgb(241, 243, 245) none repeat scroll 0% 0%' }}>
                   <div className="d-flex justify-content-between">
                     <div>
-                      <div class="chip">
+                      <div className="chip">
                         {item.name}
-                        <i class="close material-icons">close</i>
+                        <i className="close material-icons">close</i>
                       </div>
                     </div>
                     <button className="btn-floating pulse blue darken-3">

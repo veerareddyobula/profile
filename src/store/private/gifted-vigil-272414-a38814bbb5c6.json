@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "gifted-vigil-272414",
+    "private_key_id": "a38814bbb5c60ea8381b5de95ceafadcb460755d",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDZEeca2sEJNUrl\nx/hHWOFSD/BMFTv1tPSiJK0mY4S6Jl3vXXSdCrP36Gz48eEU4nmEyd2+rWQplmIp\nnxV5KPv7WIl2JfGZQKiwqDVmIvvFZlwClmQgDoo4KpPg+sLyanCG44t9FcHu8h66\nk0MooEnmCGTP1WdYtaIQBoAWol2u/gx4mf2flt8d+BqIeV8PpWaytVKMOlkUfZ+a\nubF0ZXQYHgQsHM5RP3ja6wq51QKLa1WCPcsekiiT30N/7qkGuGJkbeBPW+A+e11K\nM8GGkX1fzJGHtoO6TUJ5J7gXBisYVaCkfsdf40gE9lmOtq6k9lrLjlXSPgW/b8DY\nWkaMyEY5AgMBAAECggEAE99/uQWuBpnKcZ8NK/sHJewvo8eN5cDbZLzW3VzfGevJ\nTdDQjFAeiePNlj0OzkqttWqF0p8tPGF4OzdFUAJgj3Jbo2V16QHyb7n2qZMqWbg1\nVEdQg17RaLL9Nuu+TVNRWggbDSigyK+CALLawy1plpXOJPj0rTpzy+PMdkYHLa4J\nWAjLS+rk6uuoq6JtFaKj+7gr+xkNjzW+QNcxJ7TfSVnM2AzCXfMwCHLwcofrACGM\nCrMUkoGWPLk5lg/0e1dSR7+NknAdIFLJ+ZlbffRzVttivdIQGFJr4hNjjhZ02RUH\nOlw2mtw5XsQrw7iVtA1p5Oc5IZPtY1Vbt/lJyOdgAQKBgQD6cV352avAR96vRCBL\n4sRbHLh/TfAmEIfxuwf4uVYbA1pajycusl7RSL0xiG3MGIME9sCtUSjbmNpDoZAn\nrPPtEdIFuC2LLx3m4wK5vf6lV2hVerg3QI3bAgBgVEzeFeRe2acmdYdBhneiWHbq\nD31YoGMQOVMHaru8l2pfzjB+wQKBgQDd4vY9mUftb6y4x6EQyInvqqGzs35lLiTk\nNMuT6egjOexbtc7zIbZqUTLuH0wC58pwylTewjnS2vUHaIschEWVcp2sxFXyDgDc\n9QtEOpTWL1uiDtYcPu5UKK2WgMK7nwjLt5SvoeBIPm3h4hh0LDWDGAG2i2PenlBj\nQha9AiCdeQKBgQDJXF835Pi/58k22CqzeQdxTl1VFgARStdS15MoOzPtEjwSdekG\nFapA0SA09EF7iPXHBvKSJ6AXOAW9vOgfzmJtaReZO6V6tA5xtnJZj1Zv8CBWIg59\ndizYOvq8eOs44Rc14AAR3ws59vi3kjNCK+QXXxVnVP/aBcoebwu7Lhg1wQKBgQC/\ne7c/L4GIIUCwce7ImheXkexcNUGVtb22hu1Mp6ZiiAE2n+6JmYVfuNU39CBXvYrR\nzXpyhrD6C2U70HeE041tTG1QBFubOYR7KqlfZyK8uD/e2ejilVh9nmE3qcTjv3oK\nvFH/Q7ZXAjE3pzOtRd2kVVpdG2vDWWJMVmNjF2voGQKBgCiXDca3R9FeVnDSqOgf\nV4cq1vvYL44U7wcDtP9hO3FwyYrLhtYaDKxJ0IvInlG8LaJDVVMMsbtXYK4/7ffU\nF2j3so/FBmCRDo3trVxMcEQb/R5cGE657uxDLoN+jdylJZEL0L2Hee4c2iEvocxD\nbB1Q3PNAWqU02l3m6FMFhKBX\n-----END PRIVATE KEY-----\n",
+    "client_email": "mydevnotes@gifted-vigil-272414.iam.gserviceaccount.com",
+    "client_id": "103078556502480246720",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mydevnotes%40gifted-vigil-272414.iam.gserviceaccount.com"
+  }
+  

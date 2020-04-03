@@ -20,8 +20,8 @@ export default props => {
   return (
     <div className="navbar-fixed">
       <nav>
-        <div className="nav-wrapper blue darken-3">
-          <a href="#!" className="brand-logo mr-1">
+        <div className="nav-wrapper nav-blue-bg darken-3">
+          <a href="#!" className="brand-logo ml-1">
             My Dev Notes
           </a>
           <a href="#/" data-target="mobile-demo" className="sidenav-trigger">
