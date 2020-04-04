@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { HashRouter, Route } from 'react-router-dom';
 
-import BloggerRouter    from './blogger/blogger-router';
-import NotesRouter      from './notes/routes';
-import './App.scss'
+import BloggerRouter    from 'blogger/blogger-router';
+import NotesRouter      from 'notes/routes';
+import 'App.scss'
 
 class App extends Component {
   render() {

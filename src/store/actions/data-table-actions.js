@@ -8,6 +8,6 @@ export const loadDataTables = () => dispatch => {
   sheetFetchRequest({ range: "dataTable!A1:D4", majorDimension: "ROWS" }, dispatch).then((result) => {
     dispatch({type: dataTableActionTypes.DATA_TABLE_FETCH_SUCCESS, payload: result});
   }, (error) => {
-    console.log('--== Fetch Failure ==--', error);
+    console.warn('--== Fetch Failure ==--', error);
   });
 };

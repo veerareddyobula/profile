@@ -5,14 +5,16 @@ const pivotRowDimension = (response) => {
     const dataSet = [];
     const columns = response[0];
     Object.keys(response).map((rowNumKey) => {
+        const row = {}
         if (rowNumKey > 0) {
             const item = response[rowNumKey]
-            const row = {}
             columns.map((column, index) => {
                 row[column] = item[index]
+                return column;
             });
             dataSet.push(row);
         }
+        return row;
     })
 
     const result = {
@@ -53,7 +55,7 @@ export const sheetPostRequest = async options => {
 export const buildSheetRangeByDataTable = options => {
   const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'];
   const returnVal = `${options.sheetName}!A1:${letters[options.noOfCols]}${options.noOfRows}`;
-  console.log('--== buildSheetRangeByDataTable ', options, returnVal);
 
   return returnVal;
 }
+

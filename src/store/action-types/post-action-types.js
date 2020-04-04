@@ -1,0 +1,5 @@
+export const postActionTypes = {
+    POST_FETCH_SUCCESS: "POST_FETCH_SUCCESS",
+    POST_FETCH_FAILURE: "POST_FETCH_FAILURE",
+
+}

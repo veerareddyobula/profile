@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.scss";
 
 const CategoryCard = props => {
-  console.log("---=== CategoryCard --== ", props);
   const {
     values: { dataSet }
   } = props;
@@ -16,11 +15,11 @@ const CategoryCard = props => {
               <div className="card" key={item.id}>
                 <div className="card-image">
                   <img alt={item.name} src={item.url} />
+                </div>
+                <div className="card-content">
                   <span className={`card-title ${item.className}`}>
                     {item.name}
                   </span>
-                </div>
-                <div className="card-content">
                   <p className="flow-text">{item.description}</p>
                 </div>
                 <div className="card-action" style={{color: "rgb(29, 43, 54) !important", background: 'rgb(241, 243, 245) none repeat scroll 0% 0%' }}>

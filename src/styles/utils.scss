@@ -7,8 +7,16 @@ nav {
   }
 }
 
+/**
+* Margin & Padding Classes
+*/
+
 .ml-1 {
-  margin-left: 1rem;
+  margin-left: 1rem !important;
+}
+
+mt-1 {
+  margin-top: 1rem !important;
 }
 /** 
  Vertically align a dev center

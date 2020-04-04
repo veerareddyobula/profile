@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import $ from "jquery";
 import M from "materialize-css";
-import Pdf from '../../static/Veera_Resume.pdf';
-import Doc from '../../static/Veera_Resume.doc';
+import Pdf from 'blogger/static/Veera_Resume.pdf';
+import Doc from 'blogger/static/Veera_Resume.doc';
 import './aboutme-component.scss'
 
 class AboutmeComponent extends Component {

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { loadDataTables } from "../../../store/actions/data-table-actions";
 
 const GApiService = props => {
   const googleSignedInListen = () => {
@@ -35,7 +37,6 @@ const GApiService = props => {
         })
         .then(
           () => {
-            console.log('--== Google API Service is Initialized ==--');
             props.loadDataTables();
           },
           error => {
@@ -55,7 +56,6 @@ const GApiService = props => {
   };
 
   React.useEffect(() => {
-    console.log('***>> Google GAPI Service <<***');
     const initGoogleApiInstance = async () => {
       await loadGoogleDocApi();
     };
@@ -67,4 +67,14 @@ const GApiService = props => {
   return <div>{props.children}</div>;
 };
 
-export default GApiService;
+const mapStateToProps = state => {
+  return {
+    dataTableStore: state.DataTableStore,
+  };
+};
+
+const mapDispatchToProps = {
+  loadDataTables,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GApiService);
