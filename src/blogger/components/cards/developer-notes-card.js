@@ -1,12 +1,15 @@
 import React from "react";
+import { connect } from 'react-redux';
+
+import { getHistory } from 'store/actions/config-actions'
 
 const DeveloperNotesCard = props => {
   const [index, setIndex] = React.useState(0);
   const devNotesContent = [];
   devNotesContent.push({
     url: "assets/my-de-notes-slider/avatarSM-8.png",
-    txt: "is a self funded application to help my developer life."
-  });
+    txt: "short videos meant to share development ways for common React.js components."
+  })
   devNotesContent.push({
     url: "assets/my-de-notes-slider/avatarSM-12.png",
     txt:
@@ -15,7 +18,7 @@ const DeveloperNotesCard = props => {
   devNotesContent.push({
     url: "assets/my-de-notes-slider/avatarSM-9.png",
     txt:
-      "the idea behind this is to note my bookmarks and findings for feature help."
+      "Short videos are meant for common StackOverFlow questions"
   });
 
   React.useEffect(() => {
@@ -43,28 +46,15 @@ const DeveloperNotesCard = props => {
       </div>
       <div className="card-stacked" style={{ padding: "1rem" }}>
         <div className="interval-slide-text" style={{ height: "100%" }}>
-          <div className="v-center-wrapper">
-            <div className="set-center">
-              <p className="flow-text">
-                <span>My Dev Notes</span>{" "}
-                <span className="show-on-large font-size-18">
-                  {devNotesContent && devNotesContent[index].txt}
-                </span>
-              </p>
-            </div>
+          <div className="flow-text">
+            <p>Veera`s</p>
+            <p>Youtube Channel</p>
           </div>
-        </div>
-        <div className="notes-card-btn-placement">
-          <button
-            className="waves-effect waves-light btn-large orange dark-1"
-            onClick={() => props.history.push("/products/notes/dashboard")}
-          >
-            <i className="material-icons left">chrome_reader_mode</i> Blog
-          </button>
+          <div className="play"></div>
         </div>
       </div>
     </div>
   );
 };
 
-export default DeveloperNotesCard;
+export default connect(null, {getHistory})(DeveloperNotesCard);

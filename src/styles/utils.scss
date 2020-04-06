@@ -18,6 +18,15 @@ nav {
 mt-1 {
   margin-top: 1rem !important;
 }
+
+.p-1 {
+  padding: 1rem;
+}
+
+.m-1 {
+  margin: 1rem !important;
+}
+
 /** 
  Vertically align a dev center
 */
@@ -39,8 +48,9 @@ mt-1 {
   font-size: 12px;
 }
 
-.font-size-18 {
-  font-size: 18px;
+.font-size-16 {
+  font-weight: normal !important;
+  font-size: 16px !important;
 }
 
 @media screen and (min-width: 200px) and (max-width:560px) {
@@ -55,7 +65,7 @@ mt-1 {
   }
 }
 
-@media screen and (min-width: 1210px) and (max-width:1600px) {
+@media screen and (min-width: 1380px) and (max-width:1600px) {
   .show-on-large {
     display: block;
   }

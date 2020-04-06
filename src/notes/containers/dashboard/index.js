@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import PostCard from "../../components/post-card";
-import { loadPosts } from "../../../store/actions/post-actions";
+import { Breadcrum } from "notes/components/breadcrum";
+import PostCard from "notes/components/post-card";
+import { loadPosts } from "store/actions/post-actions";
 
 const Dashboard = props => {
   const { dataTableStore, postStore } = props;
@@ -19,6 +20,7 @@ const Dashboard = props => {
   return (
     <div className="row" style={{ marginTop: "1rem !important" }}>
       <div className="col s12">
+        <Breadcrum {...props} />
         {postStore && <PostCard {...postStore} {...props} />}
       </div>
     </div>

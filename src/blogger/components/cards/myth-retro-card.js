@@ -54,7 +54,7 @@ export default (props) => {
           <div className="v-center-wrapper">
             <div className="set-center">
               <p className="flow-text">
-                <span>Myth Retro Board</span> <span className="show-on-large font-size-18">{devNotesContent[index].txt}</span>
+                <span>Myth Retro Board</span> <span className="show-on-large font-size-16">{devNotesContent[index].txt}</span>
               </p>
             </div>
           </div>

@@ -21,8 +21,8 @@ export default props => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper nav-blue-bg darken-3">
-          <a href="#!" className="brand-logo ml-1">
-            My Dev Notes
+          <a href="#/" className="brand-logo ml-1">
+            <p className="flow-text">My Learnings</p>
           </a>
           <a href="#/" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>

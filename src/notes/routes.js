@@ -10,9 +10,6 @@ import {getNoteApplicationRoutes} from "./../store/actions/config-actions";
 import "./notes.styles.scss";
 
 const notesRouter = props => {
-  const { asyncStore } = props;
-
-  console.log('--== notesRouter --== ', props);
 
   React.useEffect(() => {
     props.getNoteApplicationRoutes();
@@ -21,16 +18,6 @@ const notesRouter = props => {
   return (
     <GApiService {...props}>
       <Navbar {...props} />
-      <div>
-        {asyncStore && asyncStore.isLoading && (
-          <div
-            className="progress blue"
-            style={{ height: "6px", marginTop: "0px" }}
-          >
-            <div className="indeterminate grey"></div>
-          </div>
-        )}
-      </div>
       <div id="myDeveloperNotes" className="container-fluid mt-1">
         <HashRouter>
           {noteRoutes.map(entity => (
@@ -44,7 +31,6 @@ const notesRouter = props => {
 
 const mapStateToProps = state => {
   return {
-    asyncStore: state.AsyncStore,
     configStore: state.ConfigStore
   };
 };

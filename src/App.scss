@@ -165,9 +165,12 @@ html::-webkit-scrollbar-track
 .interval-slide-text {
   font-family: 'Niconne', cursive;
   display: block;
+  p:first-child {
+    letter-spacing: 0.5rem;
+  }
   p {
     text-overflow: ellipsis;
-    text-align: left;
+    text-align: center;
     max-height: 7rem;
   }
 

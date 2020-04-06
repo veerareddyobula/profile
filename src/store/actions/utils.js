@@ -59,3 +59,15 @@ export const buildSheetRangeByDataTable = options => {
   return returnVal;
 }
 
+export const replacePathParams = path => {
+  const routeStr = path.split('/');
+  const response = [];
+  routeStr.forEach(item => {
+    if(!isNaN(parseInt(item))){
+      response.push(':id');
+    } else {
+      response.push(item);
+    }
+  })
+  return response.join('/').trim();
+}

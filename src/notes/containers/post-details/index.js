@@ -1,8 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
-import { Breadcrum } from "./../../components/breadcrum";
+import { Breadcrum } from "notes/components/breadcrum";
 
 const PostDetails = props => {
   const { dataTableStore } = props;

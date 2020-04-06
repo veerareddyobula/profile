@@ -21,3 +21,13 @@ export const getNoteApplicationRoutes = () => dispatch => {
     ]
   });
 };
+
+export const getHistory =  (props) => (dispatch) =>{
+  return {
+    push: (pathname, state) => {
+      console.log('--== locationHistoryPush ', props, pathname, state);
+      dispatch({ type: configActionTypes.LOCATION_HISTORY_PUSH_REDIRECT, payload: {...props.location, ...state}});
+      props.history.push({pathname: pathname, state:{...state, history: {...props.location, ...state} } });
+    }
+  }
+}

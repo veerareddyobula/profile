@@ -1,10 +1,12 @@
 import React from "react";
+import {connect} from 'react-redux';
+import { getHistory } from 'store/actions/config-actions'
 
 const PostDisplayCard = props => {
   const { item } = props;
 
   const navigateToDetails = React.useCallback(() => {
-    props.history.push({pathname:`post/${item.id}/details`, state: { ...item }});
+    props.getHistory(props).push(`post/${item.id}/details`, { ...item });
   });
 
   return (
@@ -49,4 +51,4 @@ const PostDisplayCard = props => {
   );
 };
 
-export default PostDisplayCard;
+export default connect(null, { getHistory })(PostDisplayCard);

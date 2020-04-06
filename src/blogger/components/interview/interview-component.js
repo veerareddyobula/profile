@@ -29,13 +29,8 @@ class InterviewComponent extends Component {
                   </blockquote>
                 </div>
               </div>
-              <div className="row">
-                <div className="col s12 m6 l4">
-                  <DeveloperNotesCard {...this.props} />
-                </div>
-                <div className="col s12 m6 l4">
-                  <MythRetro {...this.props} />
-                </div>
+              <div className="d-flex justify-content-center m-1">
+              <DeveloperNotesCard {...this.props} />
               </div>
             </div>
           </div>
