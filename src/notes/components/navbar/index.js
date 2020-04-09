@@ -3,14 +3,6 @@ import $ from "jquery";
 import M from "materialize-css";
 
 export default props => {
-  const { profile } = props;
-
-  const signOutViaGoogle = React.useCallback((event) => {
-    event.preventDefault();
-    sessionStorage.removeItem("currentUserData");
-    window.gapi.auth2.getAuthInstance().signOut();
-    props.history.push('/');
-  });
 
   React.useEffect(() => {
     M.Sidenav.init($(".sidenav"), {});
@@ -20,83 +12,26 @@ export default props => {
   return (
     <div className="navbar-fixed">
       <nav>
-        <div className="nav-wrapper nav-blue-bg darken-3">
+        <div className="nav-wrapper red darken-3 interval-slide-text">
           <a href="#/" className="brand-logo ml-1">
-            <p className="flow-text">My Learnings</p>
+            <div className="flow-text">
+              <p>Veera`s</p>
+            </div>
           </a>
-          <a href="#/" data-target="mobile-demo" className="sidenav-trigger">
+          <a href="#/" data-target="mobile-demo" className="sidenav-trigger mr-1">
             <i className="material-icons">menu</i>
           </a>
           <ul className="right hide-on-med-and-down">
             <li>
-              <div>
-                <a
-                  className="dropdown-trigger"
-                  href="#/"
-                  data-target="dropdown1"
-                >
-                  <img
-                    alt="profile"
-                    src={
-                      profile && profile.url
-                        ? profile.url
-                        : "assets/icons/account.png"
-                    }
-                    className="avatar"
-                  />
-                </a>
-                <ul id="dropdown1" className="dropdown-content">
-                  <li className="col-flex-two">
-                    <div>
-                      <i className="material-icons left">account_circle</i>
-                    </div>
-                    <div>{(profile && profile.fullName) || "--"}</div>
-                  </li>
-                  <li className="divider" tabIndex="-1"></li>
-                  <li className="col-flex-two">
-                    <div>
-                      <i className="material-icons left">email</i>
-                    </div>
-                    <div>{(profile && profile.email) || "--"}</div>
-                  </li>
-                  <li className="divider" tabIndex="-1"></li>
-                  <li className="d-flex justify-content-center">
-                    <button
-                      className="waves-effect waves-light btn"
-                      onClick={(event) => signOutViaGoogle(event)}
-                    >
-                      Sign Out
-                    </button>
-                  </li>
-                </ul>
-              </div>
+              <a href="#/"><i className="material-icons left">more</i> About Me</a>
             </li>
           </ul>
         </div>
       </nav>
 
       <ul className="sidenav" id="mobile-demo">
-        <li className="col-flex-two">
-          <div>
-            <i className="material-icons left">account_circle</i>
-          </div>
-          <div>{(profile && profile.fullName) || "--"}</div>
-        </li>
-        <li className="divider" tabIndex="-1"></li>
-        <li className="col-flex-two">
-          <div>
-            <i className="material-icons left">email</i>
-          </div>
-          <div>{(profile && profile.email) || "--"}</div>
-        </li>
-        <li className="divider" tabIndex="-1"></li>
-        <li className="d-flex justify-content-center">
-          <button
-            className="waves-effect waves-light btn"
-            onClick={() => signOutViaGoogle()}
-          >
-            <i className="material-icons left">exit_to_app</i> Sign Out
-          </button>
+        <li>
+          <a href="#/"><i className="material-icons left">more</i> About Me</a>
         </li>
       </ul>
     </div>

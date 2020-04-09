@@ -25,9 +25,28 @@ export const getNoteApplicationRoutes = () => dispatch => {
 export const getHistory =  (props) => (dispatch) =>{
   return {
     push: (pathname, state) => {
-      console.log('--== locationHistoryPush ', props, pathname, state);
       dispatch({ type: configActionTypes.LOCATION_HISTORY_PUSH_REDIRECT, payload: {...props.location, ...state}});
       props.history.push({pathname: pathname, state:{...state, history: {...props.location, ...state} } });
     }
   }
 }
+
+export const toggleCategories = (list, item) => (dispatch) => {
+  const temp = [...list];
+  const [selectedItem] = temp.filter(entity => entity.label === item.label);
+  selectedItem.lastUpdatedDate = new Date().getTime();
+  selectedItem.isExpand = !selectedItem.isExpand;
+  dispatch({ type: configActionTypes.CATEGORY_TOGGLE_EVENT, payload: temp});
+}; 
+
+export const toggleSubCategories = (list, item, param) => (dispatch) => {
+  console.log('--== toggleSubCategories ==--');
+  const temp = [...list];
+  const [selectedItem] = temp.filter(entity => entity.label === item.label);
+  selectedItem.lastUpdatedDate = new Date().getTime();
+  const [selectedSubItem] = selectedItem.tags.filter(
+    entity => entity.label === param.label
+  );
+  selectedSubItem.isSelected = !selectedSubItem.isSelected;
+  dispatch({ type: configActionTypes.CATEGORY_TOGGLE_EVENT, payload: temp});
+};

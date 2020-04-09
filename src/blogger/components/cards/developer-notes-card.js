@@ -4,43 +4,32 @@ import { connect } from 'react-redux';
 import { getHistory } from 'store/actions/config-actions'
 
 const DeveloperNotesCard = props => {
-  const [index, setIndex] = React.useState(0);
-  const devNotesContent = [];
-  devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-8.png",
-    txt: "short videos meant to share development ways for common React.js components."
-  })
-  devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-12.png",
-    txt:
-      "is developed using React.js framework and google drive excel as backend store."
-  });
-  devNotesContent.push({
-    url: "assets/my-de-notes-slider/avatarSM-9.png",
-    txt:
-      "Short videos are meant for common StackOverFlow questions"
-  });
+  const [index, setIndex] = React.useState(1);
 
   React.useEffect(() => {
     const clearSetInterval = setInterval(() => {
-      if (index > devNotesContent.length - 1) {
-        setIndex(0);
+      if (index > 14) {
+        setIndex(1);
       } else {
         setIndex(index + 1);
       }
-    }, 60000);
+    }, 30000);
 
     return () => {
       clearInterval(clearSetInterval);
     };
   }, []);
 
+  const onClickHandler = React.useCallback(() => {
+    props.getHistory(props).push(`/products/notes/dashboard`, {});
+  })
+
   return (
     <div className="card horizontal">
       <div className="card-image z-depth-5">
         <img
           alt="Developer Notes"
-          src={devNotesContent[index].url}
+          src={`assets/my-de-notes-slider/avatarSM-8.png`}
           className="card_horizontal__image"
         />
       </div>
@@ -50,7 +39,7 @@ const DeveloperNotesCard = props => {
             <p>Veera`s</p>
             <p>Youtube Channel</p>
           </div>
-          <div className="play"></div>
+          <div className="play" onClick={onClickHandler}></div>
         </div>
       </div>
     </div>

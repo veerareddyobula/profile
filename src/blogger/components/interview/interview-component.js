@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import DeveloperNotesCard from "./../cards/developer-notes-card";
-import MythRetro from "./../cards/myth-retro-card";
 import "./interview-component.scss";
 
 class InterviewComponent extends Component {

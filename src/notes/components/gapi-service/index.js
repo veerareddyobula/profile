@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadDataTables } from "../../../store/actions/data-table-actions";
 
 const GApiService = props => {
+  /** 
   const googleSignedInListen = () => {
     const auth2 = window.gapi.auth2.getAuthInstance();
     if (auth2.isSignedIn.get() && !sessionStorage.getItem("currentUserData")) {
@@ -22,6 +23,7 @@ const GApiService = props => {
     }
     props.history.push("/products/notes/dashboard");
   };
+  */
 
   const initializeGoogleApiClient = () => {
     window.gapi.load("client", () => {

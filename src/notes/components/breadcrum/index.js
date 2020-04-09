@@ -19,8 +19,8 @@ export const Breadcrum = connect(
   const { configStore, asyncStore, location } = props;
 
   React.useEffect(() => {
-    const temp = {};
     const { history } = configStore;
+    const temp = {};
     history &&
       history.forEach(item => {
         if (item.pathname === "/") {
@@ -45,20 +45,19 @@ export const Breadcrum = connect(
       ...entity,
       path: null
     };
-    console.log('--== Breadcrum --== ', temp , Object.values(temp), entity, location)
     setLocations(Object.values(temp));
-  }, [configStore]);
+  }, [location]);
 
   return (
     <div className="container">
-      <div className="d-flex p-1 blue lighten-5">
+      <div className="d-flex p-1 red accent-2 white-text">
         {locations &&
           locations.map((item, index) => {
             return (
               <React.Fragment key={`route_${index}`}>
                 <div>
                   {item.path ? (
-                    <a href={`#${item.path}`}>{item.label}</a>
+                    <a href={`#${item.path}`} className="white-text">{item.label}</a>
                   ) : (
                     item.label
                   )}
@@ -75,10 +74,10 @@ export const Breadcrum = connect(
       <div>
         {asyncStore && asyncStore.isLoading && (
           <div
-            className="progress blue"
+            className="progress red"
             style={{ height: "6px", marginTop: "0px" }}
           >
-            <div className="indeterminate grey"></div>
+            <div className="indeterminate amber"></div>
           </div>
         )}
       </div>

@@ -10,13 +10,20 @@ nav {
 /**
 * Margin & Padding Classes
 */
+.mr-1 {
+  margin-left: 1rem !important;
+}
 
 .ml-1 {
   margin-left: 1rem !important;
 }
 
-mt-1 {
+.mt-1 {
   margin-top: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
 }
 
 .p-1 {
@@ -25,6 +32,28 @@ mt-1 {
 
 .m-1 {
   margin: 1rem !important;
+}
+/**
+Checkbox colors
+*/
+
+.checkbox-red[type="checkbox"].filled-in:checked + span:not(.lever):after 
+{
+    border: 2px solid #C62828;  
+    background-color: #C62828;
+}
+
+.input-field label {
+  color: #C62828;
+}
+
+.input-field {
+  color: #C62828;
+}
+
+.input-field input[type=text], .input-field input[type=text]:valid {
+  border-bottom: 1px solid #C62828;
+  box-shadow: 0 1px 0 0 #C62828;
 }
 
 /** 
@@ -40,6 +69,19 @@ mt-1 {
 
   .set-center {
     display: table-cell;
+    vertical-align: middle;
+  }
+  
+}
+
+.v-table-100vh-center {
+  display: table;
+  margin-right: auto;
+  margin-left:auto;
+
+  .set-center {
+    display: table-cell;
+    height:100vh;
     vertical-align: middle;
   }
 }
