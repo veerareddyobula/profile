@@ -11,7 +11,7 @@ nav {
 * Margin & Padding Classes
 */
 .mr-1 {
-  margin-left: 1rem !important;
+  margin-right: 1rem !important;
 }
 
 .ml-1 {
@@ -33,6 +33,24 @@ nav {
 .m-1 {
   margin: 1rem !important;
 }
+/**
+border
+*/
+.border-left {
+  border-left: 1px solid #e0e0e0;
+}
+.border-top {
+  border-top: 1px solid #e0e0e0;
+}
+.border-bottom {
+  border-bottom: 0.4rem solid #e0e0e0;
+}
+
+.dashboard-border {
+  border-left: 1px solid #e0e0e0;
+}
+
+
 /**
 Checkbox colors
 */
@@ -95,15 +113,29 @@ Checkbox colors
   font-size: 16px !important;
 }
 
+.hide-on {
+  display: none;
+}
+
 @media screen and (min-width: 200px) and (max-width:560px) {
   .show-on-large {
     display: none;
+  }
+
+  .dashboard-border {
+    border-top: 0.4rem solid #e0e0e0;
+    border-left: none;
   }
 }
 
 @media screen and (min-width: 560px) and (max-width:1210px) {
   .show-on-large {
     display: none;
+  }
+
+  .dashboard-border {
+    border-top: 0.4rem solid #e0e0e0;
+    border-left: none;
   }
 }
 

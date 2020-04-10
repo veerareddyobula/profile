@@ -19,7 +19,6 @@ export default connect(mapStateToProps, {
   const { configStore, toggleCategories, toggleSubCategories } = props;
   const { notes } = configStore;
   const { filters } = notes;
-  console.log("--== ConfigStore ", filters);
   const { categories } = filters;
   const [categoryList, setCategoryList] = React.useState();
 

@@ -59,15 +59,36 @@ export const buildSheetRangeByDataTable = options => {
   return returnVal;
 }
 
-export const replacePathParams = path => {
-  const routeStr = path.split('/');
-  const response = [];
-  routeStr.forEach(item => {
-    if(!isNaN(parseInt(item))){
-      response.push(':id');
-    } else {
-      response.push(item);
+export const findQueryParamIndex = (path) => {
+  const queryParamsByIndex = {};
+  path.split('/').map((item, index) => {
+    if(item.indexOf(':') > -1) {
+      queryParamsByIndex[index] = item;
     }
+
+    return item;
   })
-  return response.join('/').trim();
+  return queryParamsByIndex;
+}
+
+export const compareRoutePaths = (routePath, locationPath) => {
+  const queryPrams = findQueryParamIndex(routePath);
+  const response = [];
+  Object.keys(queryPrams).map((entity) => {
+    locationPath.split('/').map((item, index) => {
+      if( parseInt(entity) === index) {
+        response.push(queryPrams[entity]);
+      } else {
+        response.push(item);
+      }
+
+      return item;
+    })
+
+    return entity;
+  })
+  if (response.length > 0 ) {
+    return routePath === response.join('/').trim();  
+  }
+  return routePath === locationPath;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import noteRoutes from "notes/notes.routes";
-import { replacePathParams } from "store/actions/utils";
+import { compareRoutePaths } from "store/actions/utils";
 
 const mapStateToProps = state => {
   return {
@@ -39,7 +39,7 @@ export const Breadcrum = connect(
       });
 
     const [entity] = noteRoutes.filter(
-      route => route.path === replacePathParams(location.pathname)
+      route => compareRoutePaths(route.path, location.pathname)
     );
     temp[entity.path] = {
       ...entity,

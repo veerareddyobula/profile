@@ -40,7 +40,6 @@ export const toggleCategories = (list, item) => (dispatch) => {
 }; 
 
 export const toggleSubCategories = (list, item, param) => (dispatch) => {
-  console.log('--== toggleSubCategories ==--');
   const temp = [...list];
   const [selectedItem] = temp.filter(entity => entity.label === item.label);
   selectedItem.lastUpdatedDate = new Date().getTime();

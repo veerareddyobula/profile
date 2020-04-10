@@ -1,16 +1,17 @@
-import { postActionTypes } from "../action-types/post-action-types";
+import { postActionTypes } from "../action-types/you-tube-action-types";
 
-export const PostStore = (state, action) => {
+export const YouTubeStore = (state, action) => {
   if (typeof state === "undefined") {
     return {
       majorDimension: "ROWS",
       range: null,
-      values: []
+      values: [],
+      dateLastModified: null
     };
   }
   switch (action.type) {
     case postActionTypes.POST_FETCH_SUCCESS:
-      return { ...action.payload };
+      return { ...action.payload, dateLastModified: new Date().getTime() };
     case postActionTypes.POST_FETCH_FAILURE:
       return {
         majorDimension: "ROWS",

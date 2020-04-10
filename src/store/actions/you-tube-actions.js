@@ -1,8 +1,8 @@
 import { asyncFetch } from "../action-types/async-action-types.js";
-import { postActionTypes } from "../action-types/post-action-types";
+import { postActionTypes } from "../action-types/you-tube-action-types";
 import { sheetFetchRequest, buildSheetRangeByDataTable } from "./utils";
 
-export const loadPosts = dataTable => dispatch => {
+export const loadYouTubeStore = dataTable => dispatch => {
   dispatch({ type: asyncFetch.ASYNC_FETCH });
   const range = buildSheetRangeByDataTable(dataTable);
   sheetFetchRequest({ range, majorDimension: "ROWS" }, dispatch).then(

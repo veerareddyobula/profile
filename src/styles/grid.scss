@@ -1,0 +1,35 @@
+.d-grid {
+  display: grid;
+}
+.col-1-fr {
+  grid-template-columns: 1fr;
+}
+
+.col-2-fr {
+  grid-template-columns: 1fr 1fr;
+}
+
+.col-3-fr {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.col-4-fr {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media screen and (min-width: 200px) and (max-width: 560px) {
+  .col-1-fr,
+  .col-2-fr,
+  .col-3-fr,
+  .col-4-fr {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 560px) and (max-width: 1210px) {
+  .col-2-fr,
+  .col-3-fr,
+  .col-4-fr {
+    grid-template-columns: 1fr 1fr;
+  }
+}

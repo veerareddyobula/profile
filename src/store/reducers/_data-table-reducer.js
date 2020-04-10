@@ -5,12 +5,13 @@ export const DataTableStore = (state, action) => {
     return {
       majorDimension: "ROWS",
       range: null,
-      values: []
+      values: [],
+      dateLastModified: null
     };
   }
   switch (action.type) {
     case dataTableActionTypes.DATA_TABLE_FETCH_SUCCESS:
-      return { ...action.payload };
+      return { ...action.payload, dateLastModified: new Date().getTime() };
     case dataTableActionTypes.DATA_TABLE_FETCH_FAILURE:
       return {
         majorDimension: "ROWS",
