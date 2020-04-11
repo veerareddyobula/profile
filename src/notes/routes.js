@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { HashRouter, Route, withRouter } from "react-router-dom";
 
-import GApiService from "./components/gapi-service";
 import Navbar from "./components/navbar";
 import noteRoutes from "./notes.routes";
-import { getNoteApplicationRoutes } from "./../store/actions/config-actions";
+import { getNoteApplicationRoutes, loadDataTables } from "store/actions";
+import { loadGoogleDocApi } from "store/actions/utils";
 
 import { Breadcrum } from "notes/components/breadcrum";
 import PreLoader from "notes/components/pre-loader";
@@ -13,13 +13,24 @@ import PreLoader from "notes/components/pre-loader";
 import "./notes.styles.scss";
 
 const notesRouter = props => {
+  const [ googleDocApiReady, setGoogleDocApiReady ] = React.useState(false);
   const { asyncStore } = props;
   React.useEffect(() => {
-    props.getNoteApplicationRoutes();
+    const setGoogleDocApi = async () => {
+      await loadGoogleDocApi();
+      await props.loadDataTables();
+      await props.getNoteApplicationRoutes();
+      setGoogleDocApiReady(true);
+    };
+    setGoogleDocApi();
   }, []);
 
+  if (!googleDocApiReady) {
+    return <PreLoader />;
+  }
+
   return (
-    <GApiService {...props}>
+    <React.Fragment>
       <Navbar {...props} />
       <div id="myDeveloperNotes" className="container-fluid">
         <Breadcrum {...props} />
@@ -42,7 +53,7 @@ const notesRouter = props => {
           </div>
         </div>
       </div>
-    </GApiService>
+    </React.Fragment>
   );
 };
 
@@ -55,5 +66,7 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, { getNoteApplicationRoutes })(notesRouter)
+  connect(mapStateToProps, { getNoteApplicationRoutes, loadDataTables })(
+    notesRouter
+  )
 );

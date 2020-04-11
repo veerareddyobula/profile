@@ -10,9 +10,9 @@ export const YouTubeStore = (state, action) => {
     };
   }
   switch (action.type) {
-    case postActionTypes.POST_FETCH_SUCCESS:
+    case postActionTypes.YOU_TUBE_SHEET_FETCH_SUCCESS:
       return { ...action.payload, dateLastModified: new Date().getTime() };
-    case postActionTypes.POST_FETCH_FAILURE:
+    case postActionTypes.YOU_TUBE_SHEET_FETCH_FAILURE:
       return {
         majorDimension: "ROWS",
         range: null,

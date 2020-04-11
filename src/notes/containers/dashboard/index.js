@@ -23,6 +23,7 @@ const Dashboard = props => {
   React.useEffect(() => {
     if (dataSet) {
       const [post] = dataSet.filter(item => item.sheetName === "youtube");
+      console.log('--=== One Time Loading ===--', post);
       props.loadYouTubeStore(post);
     }
   }, [dataSet]);

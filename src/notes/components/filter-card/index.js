@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import {
   toggleCategories,
-  toggleSubCategories
-} from "store/actions/config-actions";
+  toggleSubCategories,
+  filterYouTubeStoreByTags
+} from "store/actions";
 
 const mapStateToProps = state => {
   return {
@@ -14,11 +14,19 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   toggleCategories,
-  toggleSubCategories
+  toggleSubCategories,
+  filterYouTubeStoreByTags
 })(props => {
-  const { configStore, toggleCategories, toggleSubCategories } = props;
+  const { configStore, toggleCategories } = props;
   const { notes } = configStore;
   const { filters } = notes;
+
+  const applyFilters = React.useCallback(async params => {
+    const { toggleSubCategories, filterYouTubeStoreByTags } = props;
+    const { section, item, entity } = params;
+    await toggleSubCategories(filters, section, item, entity);
+    await filterYouTubeStoreByTags(filters);
+  });
 
   return (
     <div className="d-flex flex-column">
@@ -29,7 +37,8 @@ export default connect(mapStateToProps, {
             <React.Fragment key={section}>
               <div className="mb-1 mt-1">{list.displayLabel}</div>
               <div>
-                {list && list.section &&
+                {list &&
+                  list.section &&
                   list.section.map(item => {
                     return (
                       <React.Fragment key={item.label}>
@@ -66,12 +75,11 @@ export default connect(mapStateToProps, {
                                             entity.isSelected && "checked"
                                           }
                                           onChange={() =>
-                                            toggleSubCategories(
-                                              filters,
+                                            applyFilters({
                                               section,
                                               item,
                                               entity
-                                            )
+                                            })
                                           }
                                         />
                                         <span>{entity.label}</span>

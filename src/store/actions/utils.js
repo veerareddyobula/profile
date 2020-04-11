@@ -1,4 +1,3 @@
-import { asyncFetch } from "../action-types/async-action-types.js";
 const spreadsheetId = "17ZRne-mMFe86ordb19E2TSqlnJM7tQp18-PAKkjfTFA";
 
 const pivotRowDimension = (response) => {
@@ -27,39 +26,7 @@ const pivotRowDimension = (response) => {
     return result;
 }
 
-export const sheetFetchRequest = async (options, dispatch) => {
-  return await new Promise(async (resolve, reject) => {
-    try {
-      const response = await window.gapi.client.sheets.spreadsheets.values.get({
-        spreadsheetId,
-        ...options
-      });
-      dispatch({type: asyncFetch.ASYNC_FETCH_SUCCESS});
-      const {result} = response;
-      const dataSet = pivotRowDimension(result.values);
-      resolve({...result, values: dataSet});
-    } catch(error) {
-      dispatch({type: asyncFetch.ASYNC_FETCH_FAILURE, payload: error});
-      reject(error);
-    }
-  })
-};
-
-export const sheetPostRequest = async options => {
-  return await window.gapi.client.sheets.spreadsheets.values.update({
-    spreadsheetId,
-    ...options
-  });
-};
-
-export const buildSheetRangeByDataTable = options => {
-  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'];
-  const returnVal = `${options.sheetName}!A1:${letters[options.noOfCols]}${options.noOfRows}`;
-
-  return returnVal;
-}
-
-export const findQueryParamIndex = (path) => {
+const findQueryParamIndex = (path) => {
   const queryParamsByIndex = {};
   path.split('/').map((item, index) => {
     if(item.indexOf(':') > -1) {
@@ -69,6 +36,29 @@ export const findQueryParamIndex = (path) => {
     return item;
   })
   return queryParamsByIndex;
+}
+
+export const sheetFetchRequest = async options => {
+  return await new Promise(async (resolve, reject) => {
+    try {
+      const response = await window.gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId,
+        ...options
+      });
+      const {result} = response;
+      const dataSet = pivotRowDimension(result.values);
+      resolve({...result, values: dataSet});
+    } catch(error) {
+      reject(error);
+    }
+  })
+};
+
+export const buildSheetRangeByDataTable = options => {
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y'];
+  const returnVal = `${options.sheetName}!A1:${letters[options.noOfCols]}${options.noOfRows}`;
+
+  return returnVal;
 }
 
 export const compareRoutePaths = (routePath, locationPath) => {
@@ -91,4 +81,38 @@ export const compareRoutePaths = (routePath, locationPath) => {
     return routePath === response.join('/').trim();  
   }
   return routePath === locationPath;
+}
+
+export const loadGoogleDocApi = async () => {
+  return new Promise((resolve, reject) => {
+    try {
+      const script = document.createElement("script");
+      script.src = "https://apis.google.com/js/client.js";
+      script.onload = () => {
+        window.gapi.load("client", () => {
+          window.gapi.client
+            .init({
+              apiKey: "AIzaSyAOtvFK-xrogKuDBlG7QZck9Jb77XCvnVg",
+              discoveryDocs: [
+                "https://sheets.googleapis.com/$discovery/rest?version=v4"
+              ],
+              clientId:
+                "342704324971-89a8ri3ijk6sksgub4hll38087fjrqbp.apps.googleusercontent.com",
+              scope: "https://www.googleapis.com/auth/spreadsheets"
+            })
+            .then(
+              () => {
+                resolve({status: 400})
+              },
+              error => {
+                console.warn(error);
+              }
+            );
+        });
+      };
+      document.body.appendChild(script);
+    } catch (exception) {
+      reject(exception);
+    }
+  });
 }

@@ -8,6 +8,7 @@ export const loadCategories = dataTable => dispatch => {
   sheetFetchRequest({ range, majorDimension: "ROWS" }, dispatch).then(
     result => {
       dispatch({ type: categoriesActionTypes.CATEGORIES_FETCH_SUCCESS, payload: result });
+      dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
     }
   );
 };

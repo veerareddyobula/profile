@@ -7,7 +7,8 @@ export const loadDataTables = () => dispatch => {
   dispatch({ type: asyncFetch.ASYNC_FETCH });
   sheetFetchRequest({ range: "dataTable!A1:D4", majorDimension: "ROWS" }, dispatch).then((result) => {
     dispatch({type: dataTableActionTypes.DATA_TABLE_FETCH_SUCCESS, payload: result});
+    dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
   }, (error) => {
-    console.warn('--== Fetch Failure ==--', error);
+    dispatch({ type: asyncFetch.ASYNC_FETCH_FAILURE, payload: error });
   });
 };

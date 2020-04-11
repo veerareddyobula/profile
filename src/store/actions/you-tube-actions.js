@@ -3,11 +3,22 @@ import { postActionTypes } from "../action-types/you-tube-action-types";
 import { sheetFetchRequest, buildSheetRangeByDataTable } from "./utils";
 
 export const loadYouTubeStore = dataTable => dispatch => {
-  dispatch({ type: asyncFetch.ASYNC_FETCH });
   const range = buildSheetRangeByDataTable(dataTable);
   sheetFetchRequest({ range, majorDimension: "ROWS" }, dispatch).then(
     result => {
-      dispatch({ type: postActionTypes.POST_FETCH_SUCCESS, payload: result });
+      console.log('--== YOU_TUBE_SHEET_FETCH_SUCCESS ', result);
+      dispatch({ type: postActionTypes.YOU_TUBE_SHEET_FETCH_SUCCESS, payload: result });
+      dispatch({type: asyncFetch.ASYNC_FETCH_SUCCESS});
+    },
+    error => {
+      dispatch({type: asyncFetch.ASYNC_FETCH_FAILURE, payload: error});
     }
   );
 };
+
+export const filterYouTubeStoreByTags = params => dispatch => {
+  dispatch({ type: asyncFetch.ASYNC_FETCH });
+  setTimeout(() => {
+    dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
+  }, 3000);
+}
