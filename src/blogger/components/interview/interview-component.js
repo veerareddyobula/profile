@@ -28,7 +28,7 @@ class InterviewComponent extends Component {
                   </blockquote>
                 </div>
               </div>
-              <div className="d-flex justify-content-center m-1">
+              <div className="d-flex justify-content-center">
                 <DeveloperNotesCard {...this.props} />
               </div>
             </div>
