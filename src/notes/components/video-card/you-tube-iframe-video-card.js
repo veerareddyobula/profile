@@ -13,7 +13,7 @@ export default props => {
               type="text/html"
               width="100%"
               height="100%"
-              src={`http://www.youtube.com/embed/${payload.uid}`}
+              src={`//www.youtube.com/embed/${payload.uid}`}
               frameBorder="0"
               title={payload.title}
             />
