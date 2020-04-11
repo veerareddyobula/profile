@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "84a6e53875f7318a6c7e",
+    "revision": "6b25f7ebc8550f30ef2f",
     "url": "/profile/static/css/main.31a0b096.chunk.css"
   },
   {
-    "revision": "84a6e53875f7318a6c7e",
-    "url": "/profile/static/js/main.ff18da52.chunk.js"
+    "revision": "6b25f7ebc8550f30ef2f",
+    "url": "/profile/static/js/main.68b6410e.chunk.js"
   },
   {
     "revision": "189fd871db148202566e",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/profile/static/media/thimble-pattern@2x.5b6d1d40.png"
   },
   {
-    "revision": "70ef4dc569e1aaea9c199cf6cb253228",
+    "revision": "24be1a82851b103787f32c2a346bb24b",
     "url": "/profile/index.html"
   }
 ];
