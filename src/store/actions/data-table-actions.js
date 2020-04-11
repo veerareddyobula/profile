@@ -5,7 +5,7 @@ import { sheetFetchRequest } from './utils';
 
 export const loadDataTables = () => dispatch => {
   dispatch({ type: asyncFetch.ASYNC_FETCH });
-  sheetFetchRequest({ range: "dataTable!A1:D4", majorDimension: "ROWS" }, dispatch).then((result) => {
+  sheetFetchRequest({ range: "dataTable!A1:C3", majorDimension: "ROWS" }, dispatch).then((result) => {
     dispatch({type: dataTableActionTypes.DATA_TABLE_FETCH_SUCCESS, payload: result});
     dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
   }, (error) => {

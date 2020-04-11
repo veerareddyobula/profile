@@ -2,11 +2,11 @@ import {
   toggleCategories,
   toggleSubCategories,
   getNoteApplicationRoutes,
-  getHistory
+  getHistory,
+  getCodes
 } from "store/actions/config-actions";
 
 import {
-  filterYouTubeStoreByTags,
   loadYouTubeStore
 } from "store/actions/you-tube-actions";
 
@@ -17,7 +17,7 @@ export {
   toggleSubCategories,
   getNoteApplicationRoutes,
   getHistory,
-  filterYouTubeStoreByTags,
+  getCodes,
   loadYouTubeStore,
   loadDataTables
 };

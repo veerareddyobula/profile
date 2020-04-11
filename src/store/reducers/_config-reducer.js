@@ -5,44 +5,7 @@ export const ConfigStore = (state, action) => {
     return {
       notes: {
         routes: [],
-        filters: {
-          categories: {
-            displayLabel: 'Categories',
-            section: [
-              {
-                label: "Programming",
-                isExpand: true,
-                tags: [
-                  { label: "Javascript", isSelected: true },
-                  { label: "React.js", isSelected: true },
-                  { label: "Github", isSelected: true }
-                ]
-              },
-              {
-                label: "Politics",
-                isExpand: false,
-                tags: [
-                  { label: "AndhraPradesh", isSelected: true },
-                  { label: "Office", isSelected: true }
-                ]
-              }
-            ]
-          },
-          books: {
-            displayLabel: 'Books',
-            section: [
-              {
-                label: "React JS Notes for Professionals",
-                isExpand: false,
-                tags: [
-                  { label:"Getting started with React", isSelected:true },
-                  { label:"Components", isSelected:true },
-                  { label:"Using ReactJS with TypeScript", isSelected:true }
-                ]
-              }
-            ]
-          }
-        }
+        codes: {}
       },
       history: []
     };
@@ -56,8 +19,12 @@ export const ConfigStore = (state, action) => {
       const { history } = state;
       history.push(action.payload);
       return { ...state, history };
+    case configActionTypes.FILTERS_FETCH_CODES_SUCCESS:
+      return { ...state, notes:{ ...notes, codes: action.payload }}
     case configActionTypes.FILTERS_TOGGLE_EVENT:
       return {...state, notes: {...notes, filters:action.payload }}
+    case configActionTypes.CODE_FILTERS_TOGGLE_EVENT:
+      return {...state, notes: {...notes, codes: {...notes.codes, filters: action.payload} }}
     default:
       return state;
   }

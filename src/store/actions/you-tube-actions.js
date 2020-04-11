@@ -6,7 +6,6 @@ export const loadYouTubeStore = dataTable => dispatch => {
   const range = buildSheetRangeByDataTable(dataTable);
   sheetFetchRequest({ range, majorDimension: "ROWS" }, dispatch).then(
     result => {
-      console.log('--== YOU_TUBE_SHEET_FETCH_SUCCESS ', result);
       dispatch({ type: postActionTypes.YOU_TUBE_SHEET_FETCH_SUCCESS, payload: result });
       dispatch({type: asyncFetch.ASYNC_FETCH_SUCCESS});
     },
@@ -15,10 +14,3 @@ export const loadYouTubeStore = dataTable => dispatch => {
     }
   );
 };
-
-export const filterYouTubeStoreByTags = params => dispatch => {
-  dispatch({ type: asyncFetch.ASYNC_FETCH });
-  setTimeout(() => {
-    dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
-  }, 3000);
-}

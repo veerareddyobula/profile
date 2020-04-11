@@ -1,32 +1,38 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { YouTubeIFrameVideoCard } from "notes/components/video-card";
 import FilterCard from "notes/components/filter-card";
-import { loadYouTubeStore } from "store/actions/you-tube-actions";
 import PreLoader from "notes/components/pre-loader";
+import { YouTubeIFrameVideoCard } from "notes/components/video-card";
+import { loadYouTubeStore, getCodes } from "store/actions";
 import { getHistory } from "store/actions/config-actions";
 
 const Dashboard = props => {
   const [videoDetails, setVideoDetails] = React.useState([]);
   const [toggleFilters, setToggleFilters] = React.useState(true);
-  const { dataTableStore, youTubeStore, asyncStore } = props;
+  const { dataTableStore, youTubeStore, asyncStore, filters } = props;
   const { values } = dataTableStore;
   const { dataSet } = values;
 
-  React.useEffect(() => {
-    const { values } = youTubeStore;
-    const { dataSet } = values;
-    setVideoDetails(dataSet);
-  }, [youTubeStore]);
+  const filterYouTubeStoreByCodes = React.useCallback( params => {
+    const tags = []
+    Object.keys(params).forEach(group => {
+      params[group].sections.forEach(section => {
+        tags.push(...section.tags);
+      })
+    })
+    const filteredVideoList = youTubeStore.filter(item => {
+      const temp = tags.filter(entity => entity.id === item.codeValueId && entity.selected);
+      return temp.length > 0;
+    })
+    setVideoDetails(filteredVideoList);
+  });
 
   React.useEffect(() => {
-    if (dataSet) {
-      const [post] = dataSet.filter(item => item.sheetName === "youtube");
-      console.log('--=== One Time Loading ===--', post);
-      props.loadYouTubeStore(post);
+    if(youTubeStore && filters) {
+      filterYouTubeStoreByCodes(filters);
     }
-  }, [dataSet]);
+  }, [youTubeStore, filters]);
 
   const onClickHandler = React.useCallback(payload => {
     props
@@ -42,7 +48,7 @@ const Dashboard = props => {
         <div className="row" style={{ marginTop: "1rem !important" }}>
           <div className="col s12">
             <div className={toggleFilters ? "col s12 m12 l2" : "hide-on"}>
-              <FilterCard />
+              <FilterCard dataTablesInfo = {dataSet} onApplyFilter={filterYouTubeStoreByCodes} />
             </div>
             <div
               className={toggleFilters ? "dashboard-border col s12 m12 l10" : "col s12 m12 l12"}
@@ -89,13 +95,15 @@ const mapStateToProps = state => {
   return {
     asyncStore: state.AsyncStore,
     dataTableStore: state.DataTableStore,
-    youTubeStore: state.YouTubeStore
+    youTubeStore: state.YouTubeStore && state.YouTubeStore.values && state.YouTubeStore.values.dataSet,
+    filters: state.ConfigStore && state.ConfigStore.notes && state.ConfigStore.notes.codes && state.ConfigStore.notes.codes.filters,
   };
 };
 
 const mapDispatchToProps = {
   loadYouTubeStore,
-  getHistory
+  getHistory,
+  getCodes
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

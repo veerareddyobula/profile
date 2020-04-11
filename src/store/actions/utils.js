@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 const spreadsheetId = "17ZRne-mMFe86ordb19E2TSqlnJM7tQp18-PAKkjfTFA";
 
 const pivotRowDimension = (response) => {
@@ -115,4 +117,29 @@ export const loadGoogleDocApi = async () => {
       reject(exception);
     }
   });
+}
+
+export const filtersBean = (codeTableInfo, codes) => {
+
+  const filtersDataSet = _.get(codes, "values.dataSet");
+  const groupNames = _.filter(filtersDataSet, (o) => parseInt(o.parentId) === 0);
+  const filters = {};
+  groupNames.forEach(item => {
+    const sections = _.filter(filtersDataSet, (o) => o.parentId === item.id);
+    sections.forEach(label => {
+      label.tags = _.filter(filtersDataSet, (o) => o.parentId === label.id);
+    })
+    filters[item.code] = {
+      ...item,
+      displayLabel: item.value,
+      sections
+    }
+  })
+
+  return {
+    codeTableInfo,
+    codes,
+    groupNames,
+    filters
+  }
 }

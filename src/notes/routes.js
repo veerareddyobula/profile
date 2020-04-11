@@ -4,7 +4,7 @@ import { HashRouter, Route, withRouter } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import noteRoutes from "./notes.routes";
-import { getNoteApplicationRoutes, loadDataTables } from "store/actions";
+import { getNoteApplicationRoutes, loadDataTables, getCodes, loadYouTubeStore } from "store/actions";
 import { loadGoogleDocApi } from "store/actions/utils";
 
 import { Breadcrum } from "notes/components/breadcrum";
@@ -14,7 +14,10 @@ import "./notes.styles.scss";
 
 const notesRouter = props => {
   const [ googleDocApiReady, setGoogleDocApiReady ] = React.useState(false);
-  const { asyncStore } = props;
+  const { asyncStore, dataTableStore } = props;
+  const { values } = dataTableStore
+  const { dataSet } = values;
+
   React.useEffect(() => {
     const setGoogleDocApi = async () => {
       await loadGoogleDocApi();
@@ -24,6 +27,17 @@ const notesRouter = props => {
     };
     setGoogleDocApi();
   }, []);
+
+  React.useEffect(() => {
+    if (dataSet) {
+      const [codesTableInfo] = dataSet.filter(
+        item => item.sheetName === "codes"
+      );
+      props.getCodes(codesTableInfo);
+      const [youTubeTableInfo] = dataSet.filter(item => item.sheetName === "youtube");
+      props.loadYouTubeStore(youTubeTableInfo);
+    }
+  }, [dataSet]);
 
   if (!googleDocApiReady) {
     return <PreLoader />;
@@ -66,7 +80,7 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, { getNoteApplicationRoutes, loadDataTables })(
+  connect(mapStateToProps, { getNoteApplicationRoutes, loadDataTables, getCodes, loadYouTubeStore })(
     notesRouter
   )
 );
