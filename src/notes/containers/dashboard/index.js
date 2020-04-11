@@ -49,7 +49,7 @@ const Dashboard = props => {
               <div className="d-grid col-2-fr">
                 <div>
                   <button
-                    class="col s2 mt-1 btn waves-effect waves-light red dark-2"
+                    className="col s2 mt-1 btn waves-effect waves-light red dark-2"
                     onClick={() => setToggleFilters(!toggleFilters)}
                   >
                     <i className="material-icons">filter_list</i> Filters

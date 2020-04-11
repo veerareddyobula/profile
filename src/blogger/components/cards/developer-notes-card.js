@@ -37,6 +37,8 @@ const DeveloperNotesCard = props => {
         <div className="interval-slide-text" style={{ height: "100%" }}>
           <div className="flow-text">
             <p>Veera`s</p>
+            <span>Techi Records</span>
+            <div className="divider"></div>
             <p>Youtube Channel</p>
           </div>
           <div className="play" onClick={onClickHandler}></div>

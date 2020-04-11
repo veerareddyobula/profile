@@ -6,25 +6,42 @@ export const ConfigStore = (state, action) => {
       notes: {
         routes: [],
         filters: {
-          categories: [
-            {
-              label: "Programming",
-              isExpand: true,
-              tags: [
-                { label: "Javascript", isSelected: true },
-                { label: "React.js", isSelected: true },
-                { label: "Github", isSelected: true }
-              ]
-            },
-            {
-              label: "Politics",
-              isExpand: false,
-              tags: [
-                { label: "AndhraPradesh", isSelected: true },
-                { label: "Office", isSelected: true }
-              ]
-            }
-          ]
+          categories: {
+            displayLabel: 'Categories',
+            section: [
+              {
+                label: "Programming",
+                isExpand: true,
+                tags: [
+                  { label: "Javascript", isSelected: true },
+                  { label: "React.js", isSelected: true },
+                  { label: "Github", isSelected: true }
+                ]
+              },
+              {
+                label: "Politics",
+                isExpand: false,
+                tags: [
+                  { label: "AndhraPradesh", isSelected: true },
+                  { label: "Office", isSelected: true }
+                ]
+              }
+            ]
+          },
+          books: {
+            displayLabel: 'Books',
+            section: [
+              {
+                label: "React JS Notes for Professionals",
+                isExpand: false,
+                tags: [
+                  { label:"Getting started with React", isSelected:true },
+                  { label:"Components", isSelected:true },
+                  { label:"Using ReactJS with TypeScript", isSelected:true }
+                ]
+              }
+            ]
+          }
         }
       },
       history: []
@@ -39,8 +56,8 @@ export const ConfigStore = (state, action) => {
       const { history } = state;
       history.push(action.payload);
       return { ...state, history };
-    case configActionTypes.CATEGORY_TOGGLE_EVENT:
-      return {...state, notes: {...notes, filters: { categories:action.payload }}}
+    case configActionTypes.FILTERS_TOGGLE_EVENT:
+      return {...state, notes: {...notes, filters:action.payload }}
     default:
       return state;
   }

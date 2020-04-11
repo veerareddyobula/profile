@@ -29,7 +29,7 @@ class InterviewComponent extends Component {
                 </div>
               </div>
               <div className="d-flex justify-content-center m-1">
-              <DeveloperNotesCard {...this.props} />
+                <DeveloperNotesCard {...this.props} />
               </div>
             </div>
           </div>

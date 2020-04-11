@@ -31,21 +31,21 @@ export const getHistory =  (props) => (dispatch) =>{
   }
 }
 
-export const toggleCategories = (list, item) => (dispatch) => {
-  const temp = [...list];
-  const [selectedItem] = temp.filter(entity => entity.label === item.label);
+export const toggleCategories = (filters, section, item) => (dispatch) => {
+  const temp = filters[section];
+  const [selectedItem] = temp.section.filter(entity => entity.label === item.label);
   selectedItem.lastUpdatedDate = new Date().getTime();
   selectedItem.isExpand = !selectedItem.isExpand;
-  dispatch({ type: configActionTypes.CATEGORY_TOGGLE_EVENT, payload: temp});
+  dispatch({ type: configActionTypes.FILTERS_TOGGLE_EVENT, payload: filters});
 }; 
 
-export const toggleSubCategories = (list, item, param) => (dispatch) => {
-  const temp = [...list];
-  const [selectedItem] = temp.filter(entity => entity.label === item.label);
+export const toggleSubCategories = (filters, section, item, param) => (dispatch) => {
+  const temp = filters[section];
+  const [selectedItem] = temp.section.filter(entity => entity.label === item.label);
   selectedItem.lastUpdatedDate = new Date().getTime();
   const [selectedSubItem] = selectedItem.tags.filter(
     entity => entity.label === param.label
   );
   selectedSubItem.isSelected = !selectedSubItem.isSelected;
-  dispatch({ type: configActionTypes.CATEGORY_TOGGLE_EVENT, payload: temp});
+  dispatch({ type: configActionTypes.FILTERS_TOGGLE_EVENT, payload: filters});
 };

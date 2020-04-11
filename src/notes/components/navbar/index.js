@@ -14,9 +14,9 @@ export default props => {
       <nav>
         <div className="nav-wrapper red darken-3 interval-slide-text">
           <a href="#/" className="brand-logo ml-1">
-            <div className="flow-text">
-              <p>Veera`s</p>
-            </div>
+              <div className="flow-text">
+                Veera`s ...Techi Records
+              </div>
           </a>
           <a href="#/" data-target="mobile-demo" className="sidenav-trigger mr-1">
             <i className="material-icons">menu</i>
