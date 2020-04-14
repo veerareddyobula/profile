@@ -45,7 +45,7 @@ const Dashboard = props => {
       {asyncStore && asyncStore.isLoading ? (
         <PreLoader />
       ) : (
-        <div className="row" style={{ marginTop: "1rem !important" }}>
+        <div id="dashboard" className="row" style={{ marginTop: "1rem !important" }}>
           <div className="col s12">
             <div className={toggleFilters ? "col s12 m12 l2" : "hide-on"}>
               <FilterCard dataTablesInfo = {dataSet} onApplyFilter={filterYouTubeStoreByCodes} />

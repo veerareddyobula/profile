@@ -3,8 +3,16 @@
 }
 nav {
   .nav-blue-bg {
-    background: #0F92EE;
+    background: #0f92ee;
   }
+}
+
+.chip i {
+  cursor: pointer;
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  padding-left: 8px;
 }
 
 /**
@@ -50,28 +58,29 @@ border
   border-left: 1px solid #e0e0e0;
 }
 
-
 /**
-Checkbox colors
+Dashboard Checkbox InputField Styles
 */
 
-.checkbox-red[type="checkbox"].filled-in:checked + span:not(.lever):after 
-{
-    border: 2px solid #C62828;  
-    background-color: #C62828;
-}
+#dashboard {
+  .checkbox-red[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid #c62828;
+    background-color: #c62828;
+  }
 
-.input-field label {
-  color: #C62828;
-}
+  .input-field label {
+    color: #c62828;
+  }
 
-.input-field {
-  color: #C62828;
-}
+  .input-field {
+    color: #c62828;
+  }
 
-.input-field input[type=text], .input-field input[type=text]:valid {
-  border-bottom: 1px solid #C62828;
-  box-shadow: 0 1px 0 0 #C62828;
+  .input-field input[type="text"],
+  .input-field input[type="text"]:valid {
+    border-bottom: 1px solid #c62828;
+    box-shadow: 0 1px 0 0 #c62828;
+  }
 }
 
 /** 
@@ -89,17 +98,16 @@ Checkbox colors
     display: table-cell;
     vertical-align: middle;
   }
-  
 }
 
 .v-table-100vh-center {
   display: table;
   margin-right: auto;
-  margin-left:auto;
+  margin-left: auto;
 
   .set-center {
     display: table-cell;
-    height:100vh;
+    height: 100vh;
     vertical-align: middle;
   }
 }
@@ -117,7 +125,7 @@ Checkbox colors
   display: none;
 }
 
-@media screen and (min-width: 200px) and (max-width:560px) {
+@media screen and (min-width: 200px) and (max-width: 560px) {
   .show-on-large {
     display: none;
   }
@@ -128,7 +136,7 @@ Checkbox colors
   }
 }
 
-@media screen and (min-width: 560px) and (max-width:1210px) {
+@media screen and (min-width: 560px) and (max-width: 1210px) {
   .show-on-large {
     display: none;
   }
@@ -139,7 +147,7 @@ Checkbox colors
   }
 }
 
-@media screen and (min-width: 1380px) and (max-width:1600px) {
+@media screen and (min-width: 1380px) and (max-width: 1600px) {
   .show-on-large {
     display: block;
   }

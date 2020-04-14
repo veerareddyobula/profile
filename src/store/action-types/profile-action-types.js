@@ -1,0 +1,3 @@
+export const profileActionTypes = {
+    PROFILE_GOOGLE_SESSION_STATUS: "PROFILE_GOOGLE_SESSION_STATUS",
+}

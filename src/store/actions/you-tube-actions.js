@@ -1,6 +1,6 @@
 import { asyncFetch } from "../action-types/async-action-types.js";
 import { postActionTypes } from "../action-types/you-tube-action-types";
-import { sheetFetchRequest, buildSheetRangeByDataTable } from "./utils";
+import { sheetFetchRequest, buildSheetRangeByDataTable, addYouTubeRecordByValues } from "./utils";
 
 export const loadYouTubeStore = dataTable => dispatch => {
   const range = buildSheetRangeByDataTable(dataTable);
@@ -14,3 +14,12 @@ export const loadYouTubeStore = dataTable => dispatch => {
     }
   );
 };
+
+export const setYouTubeRecordByValues = (params, youTubeTableInfo) => dispatch => {
+  console.log('--==> setYouTubeRecordByValues <==-- ', params, youTubeTableInfo);
+  addYouTubeRecordByValues({  params, youTubeTableInfo}).then(
+    response => {
+      console.log('--== addYouTubeRecordByValues --==> ', response);
+    }
+  )
+}

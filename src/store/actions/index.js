@@ -12,6 +12,8 @@ import {
 
 import { loadDataTables } from "store/actions/data-table-actions";
 
+import { googleAuthInstanceSignOut, googleAuthInstanceSignIn } from "store/actions/profile-actions"
+
 export {
   toggleCategories,
   toggleSubCategories,
@@ -19,5 +21,7 @@ export {
   getHistory,
   getCodes,
   loadYouTubeStore,
-  loadDataTables
+  loadDataTables,
+  googleAuthInstanceSignIn,
+  googleAuthInstanceSignOut
 };

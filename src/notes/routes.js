@@ -1,10 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { HashRouter, Route, withRouter } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import noteRoutes from "./notes.routes";
-import { getNoteApplicationRoutes, loadDataTables, getCodes, loadYouTubeStore } from "store/actions";
+import {
+  getNoteApplicationRoutes,
+  loadDataTables,
+  getCodes,
+  loadYouTubeStore
+} from "store/actions";
 import { loadGoogleDocApi } from "store/actions/utils";
 
 import { Breadcrum } from "notes/components/breadcrum";
@@ -13,16 +18,22 @@ import PreLoader from "notes/components/pre-loader";
 import "./notes.styles.scss";
 
 const notesRouter = props => {
-  const [ googleDocApiReady, setGoogleDocApiReady ] = React.useState(false);
-  const { asyncStore, dataTableStore } = props;
-  const { values } = dataTableStore
+  const [googleDocApiReady, setGoogleDocApiReady] = React.useState(false);
+  const dispatch = useDispatch();
+  const { asyncStore, dataTableStore } = useSelector(state => {
+    return {
+      asyncStore: state.AsyncStore,
+      dataTableStore: state.DataTableStore
+    };
+  });
+  const { values } = dataTableStore;
   const { dataSet } = values;
 
   React.useEffect(() => {
     const setGoogleDocApi = async () => {
-      await loadGoogleDocApi();
-      await props.loadDataTables();
-      await props.getNoteApplicationRoutes();
+      await loadGoogleDocApi(dispatch);
+      await dispatch(loadDataTables());
+      await dispatch(getNoteApplicationRoutes());
       setGoogleDocApiReady(true);
     };
     setGoogleDocApi();
@@ -33,9 +44,11 @@ const notesRouter = props => {
       const [codesTableInfo] = dataSet.filter(
         item => item.sheetName === "codes"
       );
-      props.getCodes(codesTableInfo);
-      const [youTubeTableInfo] = dataSet.filter(item => item.sheetName === "youtube");
-      props.loadYouTubeStore(youTubeTableInfo);
+      dispatch(getCodes(codesTableInfo));
+      const [youTubeTableInfo] = dataSet.filter(
+        item => item.sheetName === "youtube"
+      );
+      dispatch(loadYouTubeStore(youTubeTableInfo));
     }
   }, [dataSet]);
 
@@ -50,9 +63,7 @@ const notesRouter = props => {
         <Breadcrum {...props} />
         <div
           className="container-fluid m-1 grey lighten-3"
-          style={{ minHeight: "100vh" }}
         >
-          <div className="row">
             {asyncStore && asyncStore.isLoading ? (
               <PreLoader />
             ) : (
@@ -64,23 +75,10 @@ const notesRouter = props => {
                 </HashRouter>
               </React.Fragment>
             )}
-          </div>
         </div>
       </div>
     </React.Fragment>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    asyncStore: state.AsyncStore,
-    configStore: state.ConfigStore,
-    dataTableStore: state.DataTableStore
-  };
-};
-
-export default withRouter(
-  connect(mapStateToProps, { getNoteApplicationRoutes, loadDataTables, getCodes, loadYouTubeStore })(
-    notesRouter
-  )
-);
+export default withRouter(notesRouter);

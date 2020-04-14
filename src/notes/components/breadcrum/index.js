@@ -37,15 +37,32 @@ export const Breadcrum = connect(
           }
         }
       });
-
-    const [entity] = noteRoutes.filter(
-      route => compareRoutePaths(route.path, location.pathname)
+    
+    const entity = [];
+    noteRoutes.forEach(
+      route => {
+        if(route.routes ) {
+           const subRoutes = []
+           route.routes.forEach(item => {
+            if (compareRoutePaths(item.path, location.pathname)) {
+              subRoutes.push(item);
+            }
+          });
+          entity.push(...subRoutes);
+        } else if(compareRoutePaths(route.path, location.pathname)) {
+          entity.push(route);
+        }
+      }
     );
-    temp[entity.path] = {
-      ...entity,
-      path: null
-    };
-    setLocations(Object.values(temp));
+    console.log('--== entity ', entity);
+    if (entity && entity.length > 0) {
+      const [route] = entity;
+      temp[route.path] = {
+        ...route,
+        path: null
+      };
+      setLocations(Object.values(temp));
+    }
   }, [location]);
 
   return (
