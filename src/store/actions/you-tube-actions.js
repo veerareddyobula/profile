@@ -16,7 +16,6 @@ export const loadYouTubeStore = dataTable => dispatch => {
 };
 
 export const setYouTubeRecordByValues = (params, youTubeTableInfo) => dispatch => {
-  console.log('--==> setYouTubeRecordByValues <==-- ', params, youTubeTableInfo);
   addYouTubeRecordByValues({  params, youTubeTableInfo}).then(
     response => {
       console.log('--== addYouTubeRecordByValues --==> ', response);

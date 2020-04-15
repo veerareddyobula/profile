@@ -86,10 +86,11 @@ export const compareRoutePaths = (routePath, locationPath) => {
 
     return entity;
   });
-  console.log('--== CompareRoutePaths ', queryPrams, response, response.join("/").trim(), locationPath);
   if (response.length > 0) {
+
     return routePath === response.join("/").trim();
   }
+
   return routePath === locationPath;
 };
 
@@ -109,43 +110,45 @@ export const sheetFetchRequest = async options => {
   });
 };
 
+const addOrUpdateSpreadSheet = async (range, params) => {
+  return await window.gapi.client.sheets.spreadsheets.values.update(
+    { spreadsheetId, range, valueInputOption: "RAW" },
+    {
+      majorDimension: "ROWS",
+      values: [
+        [
+          ...params
+        ]
+      ]
+    }
+  );
+}
+
 export const addYouTubeRecordByValues = async payload => {
   return await new Promise(async (resolve, reject) => {
     try {
       const { params, youTubeTableInfo } = payload;
-      const rowNum = parseInt(youTubeTableInfo.noOfRows) + 1;
-      const range = `${youTubeTableInfo.sheetName}!A${rowNum}:${letters[youTubeTableInfo.noOfCols]}${rowNum}`;
+      const noOfRowsInSheet = parseInt(params.id)+1;
+      const range = `${youTubeTableInfo.sheetName}!A${noOfRowsInSheet}:${letters[youTubeTableInfo.noOfCols]}${noOfRowsInSheet}`;
+      console.log('--== addYouTubeRecordByValues --==> ', payload, noOfRowsInSheet, range)
 
-      const newYouTubeRec = await window.gapi.client.sheets.spreadsheets.values.update(
-        { spreadsheetId, range, valueInputOption: "RAW" },
-        {
-          majorDimension: "ROWS",
-          values: [
-            [
-              parseInt(params.id),
-              params.title,
-              params.uId,
-              params.tags,
-              params.code,
-              params.description
-            ]
-          ]
-        }
-      );
-      const dataTableUpdateStatus = await window.gapi.client.sheets.spreadsheets.values.update(
-        { spreadsheetId, range: 'dataTable!A2:C2', valueInputOption: "RAW" },
-        {
-          majorDimension: "ROWS",
-          values: [
-            [
-              youTubeTableInfo.sheetName,
-              parseInt(youTubeTableInfo.noOfCols),
-              rowNum
-            ]
-          ]
-        }
-      );
-      resolve({ newYouTubeRec, dataTableUpdateStatus });
+      const newYouTubeRec = addOrUpdateSpreadSheet(range, [
+        parseInt(params.id),
+        params.uid,
+        params.title,
+        params.tags,
+        parseInt(params.codeValueId),
+        params.description
+      ]);
+      if (!params.isEdit) {
+        const dataTableUpdateStatus = addOrUpdateSpreadSheet('dataTable!A2:C2', [
+          youTubeTableInfo.sheetName,
+          parseInt(youTubeTableInfo.noOfCols),
+          noOfRowsInSheet
+        ]);
+        resolve({ newYouTubeRec, dataTableUpdateStatus });
+      }
+      resolve({ newYouTubeRec });
     } catch (error) {
       reject(error);
     }

@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadYouTubeStore } from "store/actions";
 
-export default () => {
+export default props => {
+  const { history } = props;
   const dispatch = useDispatch();
 
   const { youTubeStore, filters, dataTableStore } = useSelector(state => {
@@ -51,7 +52,7 @@ export default () => {
       <div className="d-flex justify-content-end mb-1">
         <a
           className="mt-1 btn waves-effect waves-light red dark-2"
-          href={`#/products/notes/admin/${youTubeStore && youTubeStore.length + 2}/edit`}
+          href={`#/products/notes/admin/${youTubeStore && youTubeStore.length + 1}/edit`}
         >
           <i className="material-icons">add</i>
         </a>
@@ -72,9 +73,9 @@ export default () => {
             </thead>
             <tbody>
               {youTubeStore &&
-                youTubeStore.map(entity => {
+                youTubeStore.map((entity, index) => {
                   return (
-                    <tr>
+                    <tr key={`you_tube_store_${index}`}>
                       <td>{entity.id}</td>
                       <td>{entity.title}</td>
                       <td>{entity.tags}</td>
@@ -82,7 +83,7 @@ export default () => {
                       <td>{getCodeValue(entity.codeValueId)}</td>
                       <td>{entity.description}</td>
                       <td>
-                        <button className="waves-effect waves-teal btn-flat">
+                        <button className="waves-effect waves-teal btn-flat" onClick={() => history.push({pathname: `/products/notes/admin/${entity.id}/edit`, state: entity})}>
                           <i className="material-icons">edit</i>
                         </button>
                       </td>

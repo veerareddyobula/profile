@@ -54,7 +54,6 @@ export const Breadcrum = connect(
         }
       }
     );
-    console.log('--== entity ', entity);
     if (entity && entity.length > 0) {
       const [route] = entity;
       temp[route.path] = {

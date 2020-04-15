@@ -62,7 +62,7 @@ const notesRouter = props => {
       <div id="myDeveloperNotes" className="container-fluid">
         <Breadcrum {...props} />
         <div
-          className="container-fluid m-1 grey lighten-3"
+          className="container-fluid m-1 grey lighten-3" style={{minHeight: "100vh"}}
         >
             {asyncStore && asyncStore.isLoading ? (
               <PreLoader />
