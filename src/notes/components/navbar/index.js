@@ -56,16 +56,21 @@ export default () => {
               )}
             </div>
             <ul id="dropdown1" className="dropdown-content">
-              <li>
-                {isSignedIn && (
-                  <a href="#/products/notes/admin/home" className="red white-text">
-                    {" "}
-                    <i className="material-icons left">folder_open</i>{" "}
-                    <span>Admin</span>
-                  </a>
-                )}
-              </li>
-              <li className="divider" tabIndex="-1"></li>
+              {isSignedIn && (
+                <React.Fragment>
+                  <li>
+                    <a
+                      href="#/products/notes/admin/home"
+                      className="red white-text"
+                    >
+                      {" "}
+                      <i className="material-icons left">folder_open</i>{" "}
+                      <span>Admin</span>
+                    </a>
+                  </li>
+                  <li className="divider" tabIndex="-1"></li>
+                </React.Fragment>
+              )}
               <li>
                 <a href="#/" className="red white-text">
                   <i className="material-icons left">more</i> About Me

@@ -20,7 +20,7 @@ export const ConfigStore = (state, action) => {
       history.push(action.payload);
       return { ...state, history };
     case configActionTypes.FILTERS_FETCH_CODES_SUCCESS:
-      return { ...state, notes:{ ...notes, codes: action.payload }}
+      return { ...state, notes:{ ...notes, codes: {...action.payload}, dateLastModified: new Date().getTime() }}
     case configActionTypes.FILTERS_TOGGLE_EVENT:
       return {...state, notes: {...notes, filters:action.payload }}
     case configActionTypes.CODE_FILTERS_TOGGLE_EVENT:

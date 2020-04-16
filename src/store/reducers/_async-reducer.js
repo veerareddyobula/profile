@@ -20,6 +20,11 @@ export const AsyncStore = (state, action) => {
         isLoading: false,
         details: action.payload
       };
+    case asyncFetch.ASYNC_REDIRECT_UPDATE_SUCCESS:
+      return {
+        isLoading: false,
+        status: {...action}
+      }
     default:
       return state;
   }

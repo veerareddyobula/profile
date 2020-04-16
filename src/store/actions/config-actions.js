@@ -1,9 +1,12 @@
 import * as _ from "lodash";
+import { asyncFetch } from "../action-types/async-action-types";
+import { apiStatusCodes } from "../action-types/api-status-codes";
 import { configActionTypes } from "./../action-types/config-action-types";
 import {
   sheetFetchRequest,
   buildSheetRangeByDataTable,
-  filtersBean
+  filtersBean,
+  setMetaDataCodes
 } from "./utils";
 
 export const getNoteApplicationRoutes = () => dispatch => {
@@ -88,4 +91,18 @@ export const getCodes = codesTableInfo => dispatch => {
       });
     }
   );
+};
+
+export const addUpdateMetaDataCodes = (range, params, codesTableInfo) => dispatch => {
+  setMetaDataCodes(range, params, codesTableInfo).then(result => {
+    dispatch({
+      type: asyncFetch.ASYNC_REDIRECT_UPDATE_SUCCESS,
+      payload: {
+        status: apiStatusCodes.GOOGLE_SHEET_UPDATE_SUCCESS,
+        params,
+        range,
+        result
+      }
+    });
+  });
 };

@@ -2,7 +2,7 @@ import * as _ from "lodash";
 import { updateSignInStatus } from "./profile-actions";
 
 const spreadsheetId = "17ZRne-mMFe86ordb19E2TSqlnJM7tQp18-PAKkjfTFA";
-const letters = [
+export const letters = [
   "A",
   "B",
   "C",
@@ -111,6 +111,7 @@ export const sheetFetchRequest = async options => {
 };
 
 const addOrUpdateSpreadSheet = async (range, params) => {
+
   return await window.gapi.client.sheets.spreadsheets.values.update(
     { spreadsheetId, range, valueInputOption: "RAW" },
     {
@@ -124,15 +125,42 @@ const addOrUpdateSpreadSheet = async (range, params) => {
   );
 }
 
+export const setMetaDataCodes = async (range, params, codesTableInfo) => {
+  return await new Promise(async (resolve, reject) => {
+    try {
+      const mataDataCodes = await addOrUpdateSpreadSheet(range, [
+        parseInt(params.id),
+        params.codeRef,
+        params.code,
+        params.parentId,
+        params.value,
+        params.selected
+      ]);
+      if (!params.isEdit) {
+        const dataTableUpdateStatus = await addOrUpdateSpreadSheet('dataTable!A3:C3', [
+          codesTableInfo.sheetName,
+          parseInt(codesTableInfo.noOfCols),
+          parseInt(params.id) + 1
+        ]);
+        resolve({ mataDataCodes, dataTableUpdateStatus });
+      } else {
+        resolve({ mataDataCodes });
+      }
+      
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 export const addYouTubeRecordByValues = async payload => {
   return await new Promise(async (resolve, reject) => {
     try {
       const { params, youTubeTableInfo } = payload;
       const noOfRowsInSheet = parseInt(params.id)+1;
       const range = `${youTubeTableInfo.sheetName}!A${noOfRowsInSheet}:${letters[youTubeTableInfo.noOfCols]}${noOfRowsInSheet}`;
-      console.log('--== addYouTubeRecordByValues --==> ', payload, noOfRowsInSheet, range)
 
-      const newYouTubeRec = addOrUpdateSpreadSheet(range, [
+      const newYouTubeRec = await addOrUpdateSpreadSheet(range, [
         parseInt(params.id),
         params.uid,
         params.title,
@@ -141,14 +169,15 @@ export const addYouTubeRecordByValues = async payload => {
         params.description
       ]);
       if (!params.isEdit) {
-        const dataTableUpdateStatus = addOrUpdateSpreadSheet('dataTable!A2:C2', [
+        const dataTableUpdateStatus = await addOrUpdateSpreadSheet('dataTable!A2:C2', [
           youTubeTableInfo.sheetName,
           parseInt(youTubeTableInfo.noOfCols),
           noOfRowsInSheet
         ]);
         resolve({ newYouTubeRec, dataTableUpdateStatus });
+      } else {
+        resolve({ newYouTubeRec });
       }
-      resolve({ newYouTubeRec });
     } catch (error) {
       reject(error);
     }

@@ -3,10 +3,10 @@ import { HashRouter, Route, withRouter } from "react-router-dom";
 
 import AdminHomeContainer from "./admin-home";
 import AdminEditContainer from "./admin-edit";
+import AdminMetadataContainer from "./admin-metadata";
 
 export default withRouter(props => {
   const { location } = props;
-  console.log("--== location --==", `#${location.pathname}`);
 
   const menuItem = React.useCallback((pathName, label) => {
     const classList = ["waves-effect", "waves-teal"];
@@ -30,13 +30,18 @@ export default withRouter(props => {
       <div className="row">
         <div className="col s12">
           <ul className="d-flex">
-            <li class="tab">
+            <li className="tab">
               {menuItem("#/products/notes/admin/home", "YouTube Store")}
             </li>
-            <li class="tab">
+            <li className="tab">
               {menuItem("#/products/notes/admin/metadata", "Metadata Store")}
             </li>
           </ul>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col s12">
+          <div className="divider" tabIndex="-1"></div>
         </div>
       </div>
       <div className="row" style={{padding: '1rem'}}>
@@ -51,6 +56,11 @@ export default withRouter(props => {
               exact
               path="/products/notes/admin/:id/edit"
               component={AdminEditContainer}
+            />
+            <Route
+              exact
+              path="/products/notes/admin/metadata"
+              component={AdminMetadataContainer}
             />
           </HashRouter>
         </div>

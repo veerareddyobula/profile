@@ -3,11 +3,13 @@ import {
   toggleSubCategories,
   getNoteApplicationRoutes,
   getHistory,
-  getCodes
+  getCodes,
+  addUpdateMetaDataCodes
 } from "store/actions/config-actions";
 
 import {
-  loadYouTubeStore
+  loadYouTubeStore,
+  setYouTubeRecordByValues
 } from "store/actions/you-tube-actions";
 
 import { loadDataTables } from "store/actions/data-table-actions";
@@ -20,7 +22,9 @@ export {
   getNoteApplicationRoutes,
   getHistory,
   getCodes,
+  addUpdateMetaDataCodes,
   loadYouTubeStore,
+  setYouTubeRecordByValues,
   loadDataTables,
   googleAuthInstanceSignIn,
   googleAuthInstanceSignOut

@@ -20,18 +20,18 @@ export default props => {
       dataTableStore:
         state.DataTableStore &&
         state.DataTableStore.values &&
-        state.DataTableStore.values.dataSet
+        state.DataTableStore.values.dataSet,
     };
   });
 
   React.useEffect(() => {
-    if (youTubeStore) {
+    if (dataTableStore) {
       const [youTubeTableInfo] = dataTableStore.filter(
         item => item.sheetName === "youtube"
       );
       dispatch(loadYouTubeStore(youTubeTableInfo));
     }
-  }, [youTubeStore]);
+  }, [dataTableStore]);
 
   const getCodeValue = React.useCallback(codeValueId => {
     const tags = [];
@@ -58,8 +58,7 @@ export default props => {
         </a>
       </div>
       <div className="white p-1">
-        <div className="responsive-table">
-          <table className="striped">
+          <table className="responsive-table striped">
             <thead>
               <tr>
                 <th>Id</th>
@@ -92,7 +91,6 @@ export default props => {
                 })}
             </tbody>
           </table>
-        </div>
       </div>
     </React.Fragment>
   );

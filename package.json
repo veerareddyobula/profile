@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://veerareddyobula.github.io/profile/",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "formik": "^2.1.4",
     "gh-pages": "^2.0.1",
     "jquery": "^3.3.1",

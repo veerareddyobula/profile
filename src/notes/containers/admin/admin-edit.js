@@ -5,10 +5,10 @@ import M from "materialize-css";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setYouTubeRecordByValues } from "store/actions/you-tube-actions";
+import { setYouTubeRecordByValues, loadDataTables } from "store/actions";
 
 export default props => {
-  const { match, location } = props;
+  const { match, location, history } = props;
   const { state } = location;
   const [codeList, setCodeList] = React.useState([]);
   let initValues = {
@@ -25,7 +25,7 @@ export default props => {
   }
   const dispatch = useDispatch();
 
-  const { filters, dataTableStore } = useSelector(state => {
+  const { filters, dataTableStore, asyncStore } = useSelector(state => {
     return {
       filters:
         state.ConfigStore &&
@@ -35,9 +35,18 @@ export default props => {
       dataTableStore:
         state.DataTableStore &&
         state.DataTableStore.values &&
-        state.DataTableStore.values.dataSet
+        state.DataTableStore.values.dataSet,
+      asyncStore: state.AsyncStore,
     };
   });
+
+  React.useEffect(() => {
+    const { status } = asyncStore;
+    if (status && status.type === "ASYNC_REDIRECT_UPDATE_SUCCESS") {
+      dispatch(loadDataTables());
+      history.push({pathname: `/products/notes/admin/home`, state: {...status}})
+    }
+  }, [asyncStore])
 
   React.useEffect(() => {
     if (filters) {
