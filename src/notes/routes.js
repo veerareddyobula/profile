@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HashRouter, Route, withRouter } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar";
 import noteRoutes from "./notes.routes";
@@ -81,4 +81,4 @@ const notesRouter = props => {
   );
 };
 
-export default withRouter(notesRouter);
+export default notesRouter;

@@ -1,17 +1,17 @@
 import React from "react";
-import { HashRouter, Route, withRouter } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 
 import AdminHomeContainer from "./admin-home";
 import AdminEditContainer from "./admin-edit";
 import AdminMetadataContainer from "./admin-metadata";
 
-export default withRouter(props => {
+export default props => {
   const { location } = props;
 
   const menuItem = React.useCallback((pathName, label) => {
     const classList = ["waves-effect", "waves-teal"];
     if (`#${location.pathname}` === pathName) {
-      classList.push("btn")
+      classList.push("btn");
       classList.push("red");
       classList.push("light-2");
     } else {
@@ -44,7 +44,7 @@ export default withRouter(props => {
           <div className="divider" tabIndex="-1"></div>
         </div>
       </div>
-      <div className="row" style={{padding: '1rem'}}>
+      <div className="row" style={{ padding: "1rem" }}>
         <div className="col s12">
           <HashRouter>
             <Route
@@ -67,4 +67,4 @@ export default withRouter(props => {
       </div>
     </React.Fragment>
   );
-});
+};

@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { YouTubeIFrameVideoCard } from "notes/components/video-card";
@@ -47,6 +46,4 @@ const mapDispatchToProps = {
   getHistory
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(PostDetails)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetails);

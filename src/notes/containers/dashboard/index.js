@@ -15,8 +15,6 @@ const Dashboard = props => {
   const { values } = dataTableStore;
   const { dataSet } = values;
 
-  console.log('--== youTubeStoreSrc ', youTubeStoreSrc);
-
   const filterYouTubeStoreByCodes = React.useCallback(params => {
     const tags = [];
     Object.keys(params).forEach(group => {

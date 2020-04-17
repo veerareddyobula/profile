@@ -45,7 +45,6 @@ export const setYouTubeRecordByValues = (
 export const searchInYouTubeStore = (youTubeStore, searchStr) => dispatch => {
   const { values } = youTubeStore;
   const { columns, dataSet } = values;
-  console.log('--=== findInYouTubeStoreByColumns ===--', columns, dataSet);
   const searchResult = dataSet.filter(item => {
     let addTheRow = false;
     for (let i=0; i<columns.length; i++) {
@@ -57,7 +56,6 @@ export const searchInYouTubeStore = (youTubeStore, searchStr) => dispatch => {
     }
     return addTheRow;
   });
-  console.log('--== SearchResult by Columns ', searchResult);
   dispatch({
     type: postActionTypes.YOU_TUBE_SHEET_SEARCH_SUCCESS,
     payload: {...youTubeStore, renderSet: searchResult}

@@ -121,12 +121,12 @@ export default props => {
                     <td>
                       <button
                         className="waves-effect waves-teal btn-flat"
-                        onClick={() =>
-                          history.push({
+                        onClick={() => {
+                          history.replace({
                             pathname: `/products/notes/admin/${entity.id}/edit`,
                             state: entity
-                          })
-                        }
+                          });
+                        }}
                       >
                         <i className="material-icons">edit</i>
                       </button>

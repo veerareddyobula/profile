@@ -6,10 +6,12 @@ import NotesRouter      from 'notes/routes';
 import 'App.scss'
 
 class App extends Component {
+
   render() {
+
     return (
       <HashRouter>
-        <Route exact path="/products/*"  component={NotesRouter} />
+        <Route exact path="/products/*" component={NotesRouter} />
         <Route exact path="/" component={props => (<BloggerRouter {...props} />) } />
       </HashRouter>
     );
