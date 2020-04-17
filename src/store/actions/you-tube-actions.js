@@ -11,9 +11,10 @@ export const loadYouTubeStore = dataTable => dispatch => {
   const range = buildSheetRangeByDataTable(dataTable);
   sheetFetchRequest({ range, majorDimension: "ROWS" }, dispatch).then(
     result => {
+      const {values} = result;
       dispatch({
         type: postActionTypes.YOU_TUBE_SHEET_FETCH_SUCCESS,
-        payload: result
+        payload: {...result, renderSet: values.dataSet}
       });
       dispatch({ type: asyncFetch.ASYNC_FETCH_SUCCESS });
     },
@@ -40,3 +41,25 @@ export const setYouTubeRecordByValues = (
     });
   });
 };
+
+export const searchInYouTubeStore = (youTubeStore, searchStr) => dispatch => {
+  const { values } = youTubeStore;
+  const { columns, dataSet } = values;
+  console.log('--=== findInYouTubeStoreByColumns ===--', columns, dataSet);
+  const searchResult = dataSet.filter(item => {
+    let addTheRow = false;
+    for (let i=0; i<columns.length; i++) {
+      const col = columns[i];
+      if (item[col] && item[col].toLowerCase().indexOf(searchStr) > -1) {
+        addTheRow = true;
+        return true
+      }
+    }
+    return addTheRow;
+  });
+  console.log('--== SearchResult by Columns ', searchResult);
+  dispatch({
+    type: postActionTypes.YOU_TUBE_SHEET_SEARCH_SUCCESS,
+    payload: {...youTubeStore, renderSet: searchResult}
+  });
+}

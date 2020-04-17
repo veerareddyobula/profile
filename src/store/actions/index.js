@@ -9,7 +9,8 @@ import {
 
 import {
   loadYouTubeStore,
-  setYouTubeRecordByValues
+  setYouTubeRecordByValues,
+  searchInYouTubeStore
 } from "store/actions/you-tube-actions";
 
 import { loadDataTables } from "store/actions/data-table-actions";
@@ -25,6 +26,7 @@ export {
   addUpdateMetaDataCodes,
   loadYouTubeStore,
   setYouTubeRecordByValues,
+  searchInYouTubeStore,
   loadDataTables,
   googleAuthInstanceSignIn,
   googleAuthInstanceSignOut

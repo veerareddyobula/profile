@@ -19,6 +19,8 @@ export const YouTubeStore = (state, action) => {
         values: [],
         error: action.payload
       };
+    case postActionTypes.YOU_TUBE_SHEET_SEARCH_SUCCESS:
+      return { ...action.payload, dateLastModified: new Date().getTime() };
     default:
       return state;
   }

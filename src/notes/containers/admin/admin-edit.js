@@ -39,6 +39,7 @@ export default props => {
       asyncStore: state.AsyncStore,
     };
   });
+  console.log('--== admin-edit ', filters)
 
   React.useEffect(() => {
     const { status } = asyncStore;
